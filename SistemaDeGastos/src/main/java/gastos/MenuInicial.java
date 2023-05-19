@@ -47,6 +47,7 @@ public class MenuInicial implements ActionListener{
                     "20","21","22","23","24","25","26","27","28","29","30"};
     JComboBox combo = new JComboBox<String>(x);
     JComboBox comboLista = new JComboBox<String>(x);
+
     MenuInicial(){
 
         //Adicionar componentes
@@ -79,6 +80,7 @@ public class MenuInicial implements ActionListener{
         painelScroll.setBounds(400, 300, 350, 250);
         TableColumn col = gastosLista.getColumnModel().getColumn(1);
         col.setCellEditor(new DefaultCellEditor(combo));
+        gastosLista.setAutoCreateRowSorter(true);
         //Configurar botões de interação com a tabela /adicionar gastos
         addGastos.setBounds(215, 415, 150, 30);
         addGastos.setFont(fonteBotao);
@@ -119,7 +121,8 @@ public class MenuInicial implements ActionListener{
         }
 
         if(e.getSource() == removerGastos){
-            int x = gastosLista.getSelectedRow();
+
+            int x = gastosLista.convertRowIndexToModel(gastosLista.getSelectedRow());
             modeloTable.removeRow(x);
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
