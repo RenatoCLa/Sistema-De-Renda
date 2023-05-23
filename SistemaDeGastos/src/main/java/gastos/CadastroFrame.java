@@ -109,10 +109,12 @@ public class CadastroFrame implements ActionListener {
 
         if(e.getSource() == cadBt){
 
+            //abre a tela inicial (caso o cadastro tenha ocorrido com sucesso)
         }
 
         if(e.getSource() == logBt){
 
+            //abre a tela de login
             LoginFrame login = new LoginFrame();
             cadastro.dispose();
         }
