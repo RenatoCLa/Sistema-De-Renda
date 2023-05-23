@@ -51,7 +51,7 @@ public class LoginFrame implements ActionListener{
         //campo de nome
         nomeField.setBounds(175, 200, 275, 25);
         nomeField.setFont(fonte2);
-        nomeField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        nomeField.setCursor(new Cursor(Cursor.TEXT_CURSOR));//isso aqui é pro icone do mouse mudar caso ele esteja em cima desse componente
 
         //texto "senha"
         senhaLabel.setBounds(90, 275, 125, 25);
@@ -110,12 +110,14 @@ public class LoginFrame implements ActionListener{
 
         if(e.getSource() == cadBt){
 
+            //abre a tela de cadastro
             CadastroFrame cad = new CadastroFrame();
             login.dispose();
         }
 
         if(e.getSource() == logBt){
 
+            //abre o menu inicial
             String usuario = nomeField.getText();
             String senha = String.valueOf(senhaField.getPassword());
 

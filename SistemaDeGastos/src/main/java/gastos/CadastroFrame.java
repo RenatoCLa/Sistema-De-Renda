@@ -84,7 +84,7 @@ public class CadastroFrame implements ActionListener {
         //configurar tela
         cadastro.setSize(600, 500);
         cadastro.getContentPane().setBackground(new Color(50, 100, 200));
-        cadastro.setTitle("CADASTRO");
+        cadastro.setTitle("Cadastro");
         cadastro.setResizable(false);
         cadastro.setLocationRelativeTo(null);
         cadastro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,10 +109,12 @@ public class CadastroFrame implements ActionListener {
 
         if(e.getSource() == cadBt){
 
+            //abre a tela inicial (caso o cadastro tenha ocorrido com sucesso)
         }
 
         if(e.getSource() == logBt){
 
+            //abre a tela de login
             LoginFrame login = new LoginFrame();
             cadastro.dispose();
         }
