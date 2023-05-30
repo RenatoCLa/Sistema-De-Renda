@@ -117,14 +117,12 @@ public class MenuInicial implements ActionListener{
     //aqui é onde vai ser processado todas as interações
     @Override
     public void actionPerformed(ActionEvent e) {
-
         // esse comando serve pra detectar onde ocorreu uma interação
         if(e.getSource() == graficoDisplay){
             //Chamar o grafico
-            //isso aqui n ta pronto, é pra algum de vcs programar o grafico mostrando os valores
-            //boa sorte
+            inicialFrame.setVisible(false);
         }
-
+        
         if(e.getSource() == addGastos){
             //isso aqui adiciona um novo item na tabela, pegando os valores inseridos nos respectivos botoes
             String x = "R$" + valorGasto.getText();
@@ -139,5 +137,4 @@ public class MenuInicial implements ActionListener{
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
-    
 }
