@@ -45,11 +45,11 @@ public class MenuInicial implements ActionListener{
 
     //Variavel que contem os dias em um mes (possivelmente temporario)
     String[] x = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19",
-                    "20","21","22","23","24","25","26","27","28","29","30"};
+                    "20","21","22","23","24","25","26","27","28","29","30","31"};
     //Isso aqui é o menu de seleção de dias na tabela                
-    JComboBox combo = new JComboBox<String>(x);
+    JComboBox<String> combo = new JComboBox<String>(x);
     //isso aqui é o menu de seleção de dias fora da tabela
-    JComboBox comboLista = new JComboBox<String>(x);
+    JComboBox<String> comboLista = new JComboBox<String>(x);
 
     //esse codigo vai ser chamado, quando um menu for criado
     MenuInicial(){
@@ -77,6 +77,7 @@ public class MenuInicial implements ActionListener{
         gastosContador.setForeground(Color.white);
         //configurar botao de visualização  de grafico
         graficoDisplay.setBounds(25, 125, 150, 40);
+        graficoDisplay.addActionListener(this);
         //Configurar tabela de gastos
         modeloTable.addColumn("Gastos(R$)"); //cria a coluna de gastos na tabela
         modeloTable.addColumn("Dia"); // cria a coluna de dias na tabela
@@ -120,7 +121,8 @@ public class MenuInicial implements ActionListener{
         // esse comando serve pra detectar onde ocorreu uma interação
         if(e.getSource() == graficoDisplay){
             //Chamar o grafico
-            inicialFrame.setVisible(false);
+            GraficoGastos gfx = new GraficoGastos();
+            
         }
         
         if(e.getSource() == addGastos){
