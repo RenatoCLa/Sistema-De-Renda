@@ -127,9 +127,16 @@ public class MenuInicial implements ActionListener{
         
         if(e.getSource() == addGastos){
             //isso aqui adiciona um novo item na tabela, pegando os valores inseridos nos respectivos botoes
-            String x = valorGasto.getText();
-            String y = comboLista.getSelectedItem().toString();
-            modeloTable.insertRow(0, new Object[]{x, y});
+            if(valorGasto.getText().isBlank()){
+
+            }else{
+                //String x = valorGasto.getText().replaceAll("[a-zA-Z ]", "");
+                String x = valorGasto.getText().replaceAll("[^\\p{Digit}]", "");
+                String y = comboLista.getSelectedItem().toString();
+                modeloTable.insertRow(0, new Object[]{x, y});
+                valorGasto.setText("");
+            }
+            
         }
 
         if(e.getSource() == removerGastos){
