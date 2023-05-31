@@ -29,7 +29,7 @@ public class MenuInicial implements ActionListener{
     JButton addGastos = new JButton("Adicionar Gastos");
     JButton removerGastos = new JButton("Remover Gastos");
     //Table (componentes da tabela)
-    DefaultTableModel modeloTable = new DefaultTableModel();
+    static DefaultTableModel modeloTable = new DefaultTableModel();
     JTable gastosLista = new JTable(modeloTable);
     JScrollPane painelScroll = new JScrollPane(gastosLista);
     //TextField (variavel de texto que pode receber o input do usuario)
@@ -127,7 +127,7 @@ public class MenuInicial implements ActionListener{
         
         if(e.getSource() == addGastos){
             //isso aqui adiciona um novo item na tabela, pegando os valores inseridos nos respectivos botoes
-            String x = "R$" + valorGasto.getText();
+            String x = valorGasto.getText();
             String y = comboLista.getSelectedItem().toString();
             modeloTable.insertRow(0, new Object[]{x, y});
         }
