@@ -67,19 +67,17 @@ public class GraficoGastos {
         
     }
     
-   
-public String calcularGastos(int diaX){
-    int gast = 0;
-    for(int i = 0; i < MenuInicial.modeloTable.getRowCount(); i++){
-        int diaY = Integer.parseInt(MenuInicial.modeloTable.getValueAt(i, i)+ "");
-        if(diaY == diaX){
-            int quant = Integer.parseInt(MenuInicial.modeloTable.getValueAt(i, 0)+"");
-            gast += quant;
-        }
+    public String calcularGastos(int diaX){
+        int gast = 0;
+        for(int i = 0; i < MenuInicial.modeloTable.getRowCount(); i++){
+            int diaY = Integer.parseInt(MenuInicial.modeloTable.getValueAt(i, 1)+"");
+            if(diaY == diaX){
+                int quant = Integer.parseInt(MenuInicial.modeloTable.getValueAt(i, 0)+"");
+                gast += quant;
+            }
             
+        }
+        String x = "R$" + String.valueOf(gast)+ ",00";
+        return x;
     }
-    String x = "R$" + String.valueOf(gast)+ ",00";
-    return x;
-
-}
 }
