@@ -29,7 +29,7 @@ public class MenuInicial implements ActionListener{
     JButton addGastos = new JButton("Adicionar Gastos");
     JButton removerGastos = new JButton("Remover Gastos");
     //Table (componentes da tabela)
-    DefaultTableModel modeloTable = new DefaultTableModel();
+    static DefaultTableModel modeloTable = new DefaultTableModel();
     JTable gastosLista = new JTable(modeloTable);
     JScrollPane painelScroll = new JScrollPane(gastosLista);
     //TextField (variavel de texto que pode receber o input do usuario)
@@ -45,11 +45,11 @@ public class MenuInicial implements ActionListener{
 
     //Variavel que contem os dias em um mes (possivelmente temporario)
     String[] x = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19",
-                    "20","21","22","23","24","25","26","27","28","29","30"};
+                    "20","21","22","23","24","25","26","27","28","29","30","31"};
     //Isso aqui é o menu de seleção de dias na tabela                
-    JComboBox combo = new JComboBox<String>(x);
+    JComboBox<String> combo = new JComboBox<String>(x);
     //isso aqui é o menu de seleção de dias fora da tabela
-    JComboBox comboLista = new JComboBox<String>(x);
+    JComboBox<String> comboLista = new JComboBox<String>(x);
 
     //esse codigo vai ser chamado, quando um menu for criado
     MenuInicial(){
@@ -77,6 +77,7 @@ public class MenuInicial implements ActionListener{
         gastosContador.setForeground(Color.white);
         //configurar botao de visualização  de grafico
         graficoDisplay.setBounds(25, 125, 150, 40);
+        graficoDisplay.addActionListener(this);
         //Configurar tabela de gastos
         modeloTable.addColumn("Gastos(R$)"); //cria a coluna de gastos na tabela
         modeloTable.addColumn("Dia"); // cria a coluna de dias na tabela
@@ -117,19 +118,24 @@ public class MenuInicial implements ActionListener{
     //aqui é onde vai ser processado todas as interações
     @Override
     public void actionPerformed(ActionEvent e) {
-
         // esse comando serve pra detectar onde ocorreu uma interação
         if(e.getSource() == graficoDisplay){
             //Chamar o grafico
-            //isso aqui n ta pronto, é pra algum de vcs programar o grafico mostrando os valores
-            //boa sorte
+            GraficoGastos gfx = new GraficoGastos();
+            
         }
-
+        
         if(e.getSource() == addGastos){
             //isso aqui adiciona um novo item na tabela, pegando os valores inseridos nos respectivos botoes
-            String x = "R$" + valorGasto.getText();
-            String y = comboLista.getSelectedItem().toString();
-            modeloTable.insertRow(0, new Object[]{x, y});
+            if(valorGasto.getText().replaceAll("[^\\p{Digit}]", "").isBlank()){
+
+            }else{
+                String x = valorGasto.getText().replaceAll("[^\\p{Digit}]", "");
+                String y = comboLista.getSelectedItem().toString();
+                modeloTable.insertRow(0, new Object[]{x, y});
+                valorGasto.setText("");
+            }
+            
         }
 
         if(e.getSource() == removerGastos){
@@ -139,5 +145,4 @@ public class MenuInicial implements ActionListener{
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
-    
 }
