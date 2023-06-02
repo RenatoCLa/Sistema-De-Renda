@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 
 public class LoginFrame implements ActionListener{
     
+    private String nome;
+    private String senha;
+
     //JFrame
     JFrame login = new JFrame();
 
@@ -36,8 +39,7 @@ public class LoginFrame implements ActionListener{
     Font fonte4 = new Font("SansSerif", Font.BOLD, 48);
     Font fonte5 = new Font("SansSerif", Font.BOLD, 14);
 
-    LoginFrame(){
-
+    LoginFrame(Conta c){
         //titulo
         titulo.setBounds(235, 65, 200, 55);
         titulo.setFont(fonte4);
@@ -100,9 +102,13 @@ public class LoginFrame implements ActionListener{
         login.add(titulo);
         login.add(cadBt);
 
+        this.senha = c.getSenha();
+        this.nome = c.getNome();
+
         //Deixar a tela visivel
         login.setVisible(true);
 
+        
     }
 
     @Override
@@ -118,13 +124,16 @@ public class LoginFrame implements ActionListener{
         if(e.getSource() == logBt){
 
             //abre o menu inicial
-            String usuario = nomeField.getText();
-            String senha = String.valueOf(senhaField.getPassword());
+            String usuarioTxt = nomeField.getText();
+            char[] pass = senhaField.getPassword();
+            String senhaTxt = new String(pass);
 
-            MenuInicial inicio = new MenuInicial();
-            login.dispose();
+            System.out.println(senhaTxt + " " + this.senha);
+            if(usuarioTxt.equals(this.nome) && senhaTxt.equals(this.senha)){
+                MenuInicial inicio = new MenuInicial();
+                login.dispose();
+            }
         }
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
-
 }
