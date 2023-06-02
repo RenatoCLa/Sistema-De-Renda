@@ -113,7 +113,6 @@ public class CadastroFrame implements ActionListener {
             String nome = nomeField.getText().replaceAll(" ", "");
             char[] pass = senhaField.getPassword();
             String senha = new String(pass);
-            System.out.println(nome + " " + senha);
             if(nome.isBlank() && senha.isBlank()){
             }else{
                 Conta c1 = new Conta(nome, senha);

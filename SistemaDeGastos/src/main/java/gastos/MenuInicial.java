@@ -20,6 +20,8 @@ public class MenuInicial implements ActionListener{
     //JFrame
     JFrame inicialFrame = new JFrame();
 
+    static Gastos gastT = new Gastos();
+
     //Componentes da tela
     //Label (variaveis de texto)
     JLabel titulo = new JLabel("Gerenciador de Gastos Mensais");
@@ -30,7 +32,7 @@ public class MenuInicial implements ActionListener{
     JButton removerGastos = new JButton("Remover Gastos");
     //Table (componentes da tabela)
     static DefaultTableModel modeloTable = new DefaultTableModel();
-    JTable gastosLista = new JTable(modeloTable);
+    JTable gastosLista = new JTable(gastT.modelo);
     JScrollPane painelScroll = new JScrollPane(gastosLista);
     //TextField (variavel de texto que pode receber o input do usuario)
     JTextField valorGasto = new JTextField();
@@ -79,8 +81,8 @@ public class MenuInicial implements ActionListener{
         graficoDisplay.setBounds(25, 125, 150, 40);
         graficoDisplay.addActionListener(this);
         //Configurar tabela de gastos
-        modeloTable.addColumn("Gastos(R$)"); //cria a coluna de gastos na tabela
-        modeloTable.addColumn("Dia"); // cria a coluna de dias na tabela
+        //modeloTable.addColumn("Gastos(R$)"); //cria a coluna de gastos na tabela
+        //.addColumn("Dia"); // cria a coluna de dias na tabela
         gastosLista.getTableHeader().setFont(listaFonte); // altera a fonte
         gastosLista.getTableHeader().getColumnModel().getColumn(0).setPreferredWidth(225); // isso aqui deixa a coluna de gastos maior que a coluna de dias
         gastosLista.getTableHeader().setResizingAllowed(false); //isso aqui faz com que as colunas n possam mudar de tamanho
@@ -121,7 +123,7 @@ public class MenuInicial implements ActionListener{
         // esse comando serve pra detectar onde ocorreu uma interação
         if(e.getSource() == graficoDisplay){
             //Chamar o grafico
-            GraficoGastos gfx = new GraficoGastos();
+            GraficoGastos gfx = new GraficoGastos(gastT);
             
         }
         
@@ -132,7 +134,8 @@ public class MenuInicial implements ActionListener{
             }else{
                 String x = valorGasto.getText().replaceAll("[^\\p{Digit}]", "");
                 String y = comboLista.getSelectedItem().toString();
-                modeloTable.insertRow(0, new Object[]{x, y});
+                //modeloTable.insertRow(0, new Object[]{x, y});
+                gastT.addModeloRow(x, y);
                 valorGasto.setText("");
             }
             
@@ -141,7 +144,8 @@ public class MenuInicial implements ActionListener{
         if(e.getSource() == removerGastos){
             //esse comando aqui remove o item selecionado na tabela, caso vc clique no botao de removerGastos
             int x = gastosLista.convertRowIndexToModel(gastosLista.getSelectedRow());
-            modeloTable.removeRow(x);
+            //modeloTable.removeRow(x);
+            gastT.deleteModeloRow(x);
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }

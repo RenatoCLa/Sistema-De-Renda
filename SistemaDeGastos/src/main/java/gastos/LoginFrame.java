@@ -128,7 +128,6 @@ public class LoginFrame implements ActionListener{
             char[] pass = senhaField.getPassword();
             String senhaTxt = new String(pass);
 
-            System.out.println(senhaTxt + " " + this.senha);
             if(usuarioTxt.equals(this.nome) && senhaTxt.equals(this.senha)){
                 MenuInicial inicio = new MenuInicial();
                 login.dispose();
