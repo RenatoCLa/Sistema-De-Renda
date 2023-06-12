@@ -7,10 +7,13 @@ import java.awt.event.ItemListener;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 public class GraficoGastos {
     
     JFrame tela = new JFrame();
+
+    Gastos table;
 
     JLabel displayGastos = new JLabel("");
     JLabel titulo = new JLabel("Gastos do dia :");
@@ -25,7 +28,7 @@ public class GraficoGastos {
     Font fonte03 = new Font("SansSerif", Font.BOLD, 18);
     Font fonte04 = new Font("SansSerif", Font.BOLD, 42);
 
-    GraficoGastos(){
+    GraficoGastos(Gastos gastT){
         
         tela.add(displayGastos);
         tela.add(titulo);
@@ -56,6 +59,8 @@ public class GraficoGastos {
         displayGastos.setFont(fonte04);
         displayGastos.setForeground(Color.white);
 
+        table = gastT;
+
         tela.setSize(300, 250);
         tela.setLayout(null);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -69,10 +74,10 @@ public class GraficoGastos {
     
     public String calcularGastos(int diaX){
         int gast = 0;
-        for(int i = 0; i < MenuInicial.modeloTable.getRowCount(); i++){
-            int diaY = Integer.parseInt(MenuInicial.modeloTable.getValueAt(i, 1)+"");
+        for(int i = 0; i < table.getRowQuant(); i++){
+            int diaY = table.calcularQuant(i, 1);;
             if(diaY == diaX){
-                int quant = Integer.parseInt(MenuInicial.modeloTable.getValueAt(i, 0)+"");
+                int quant = table.calcularQuant(i, 0);
                 gast += quant;
             }
             

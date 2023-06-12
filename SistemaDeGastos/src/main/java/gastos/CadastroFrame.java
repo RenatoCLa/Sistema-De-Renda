@@ -108,16 +108,26 @@ public class CadastroFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == cadBt){
-
+            
             //abre a tela inicial (caso o cadastro tenha ocorrido com sucesso)
+            String nome = nomeField.getText().replaceAll(" ", "");
+            char[] pass = senhaField.getPassword();
+            String senha = new String(pass);
+            if(nome.isBlank() && senha.isBlank()){
+            }else{
+                Conta c1 = new Conta(nome, senha);
+                LoginFrame login = new LoginFrame(c1);
+                cadastro.dispose();
+            }
+            
         }
 
-        if(e.getSource() == logBt){
+        // if(e.getSource() == logBt){
 
-            //abre a tela de login
-            LoginFrame login = new LoginFrame();
-            cadastro.dispose();
-        }
+        //     //abre a tela de login
+        //     // LoginFrame login = new LoginFrame();
+        //     // cadastro.dispose();
+        // }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
     
