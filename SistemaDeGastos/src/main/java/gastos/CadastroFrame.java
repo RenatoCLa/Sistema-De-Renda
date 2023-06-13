@@ -64,14 +64,14 @@ public class CadastroFrame implements ActionListener {
         senhaField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 
         //Botao cadastro
-        cadBt.setBounds(230, 350, 140, 35);
+        cadBt.setBounds(180, 350, 140, 35);
         cadBt.setFont(fonte1);
-        cadBt.setFocusable(false);
+        cadBt.setFocusable(true);
         cadBt.addActionListener(this);
         cadBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //botao redirecionar para login
-        logBt.setBounds(262, 385, 75, 25);
+        logBt.setBounds(330, 355, 75, 25);
         logBt.setFont(fonte5);
         logBt.setFocusable(false);
         logBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -81,9 +81,9 @@ public class CadastroFrame implements ActionListener {
         logBt.setBorder(null);
         logBt.setContentAreaFilled(false);
         
-        //configurar tela
+        //configurar frame (janela)
         cadastro.setSize(600, 500);
-        cadastro.getContentPane().setBackground(new Color(50, 100, 200));
+        cadastro.getContentPane().setBackground(new Color(245, 232, 192));
         cadastro.setTitle("Cadastro");
         cadastro.setResizable(false);
         cadastro.setLocationRelativeTo(null);
