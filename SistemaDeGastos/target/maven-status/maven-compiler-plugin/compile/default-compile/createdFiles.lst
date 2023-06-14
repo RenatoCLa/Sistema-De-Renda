@@ -1,1 +1,13 @@
-gastos\SistemaDeGastos.class
+BD\gastosDAO.class
+gastos\MenuInicial.class
+gastos\Main.class
+gastos\LoginFrame.class
+gastos\Gastos.class
+gastos\userID.class
+BD\userCadDAO.class
+BD\userLogDAO.class
+gastos\GraficoGastos$1.class
+gastos\CadastroFrame.class
+BD\connectDAO.class
+gastos\GraficoGastos.class
+gastos\Conta.class
