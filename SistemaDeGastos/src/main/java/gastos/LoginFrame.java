@@ -15,10 +15,6 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 
 public class LoginFrame implements ActionListener{
-    
-    private String nome;
-    private String senha;
-
     //JFrame
     JFrame login = new JFrame();
 
@@ -44,7 +40,7 @@ public class LoginFrame implements ActionListener{
     Font fonte4 = new Font("SansSerif", Font.BOLD, 48);
     Font fonte5 = new Font("SansSerif", Font.BOLD, 14);
 
-    LoginFrame(Conta c){
+    LoginFrame(){
         //titulo
         titulo.setBounds(235, 65, 200, 55);
         titulo.setFont(fonte4);
@@ -106,10 +102,6 @@ public class LoginFrame implements ActionListener{
         login.add(senhaField);
         login.add(titulo);
         login.add(cadBt);
-
-        this.senha = c.getSenha();
-        this.nome = c.getNome();
-
         //Deixar a tela visivel
         login.setVisible(true);
 
@@ -140,6 +132,8 @@ public class LoginFrame implements ActionListener{
                 ResultSet resultUser = userdao.verificarUser(c1);
 
                 if (resultUser.next()){
+                    int x = resultUser.getInt(1);
+                    userID.setID(x);
                     MenuInicial inicio = new MenuInicial();
                     login.dispose();
 
@@ -151,12 +145,6 @@ public class LoginFrame implements ActionListener{
             } catch (Exception error) {
                 JOptionPane.showMessageDialog(cadBt, error.getMessage());
             }
-
-
-            /* if(usuarioTxt.equals(this.nome) && senhaTxt.equals(this.senha)){
-                MenuInicial inicio = new MenuInicial();
-                login.dispose();
-            } */
         }
         //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }

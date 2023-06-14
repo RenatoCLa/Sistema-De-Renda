@@ -128,7 +128,7 @@ public class CadastroFrame implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Conta já existe");
                     }else{
                         cad.cadastrarUser(c1);
-                        LoginFrame login = new LoginFrame(c1);
+                        LoginFrame login = new LoginFrame();
                         cadastro.dispose();
                     }
                 } catch (SQLException e1) {
@@ -140,12 +140,12 @@ public class CadastroFrame implements ActionListener {
             
         }
 
-        // if(e.getSource() == logBt){
+        if(e.getSource() == logBt){
 
-        //     //abre a tela de login
-        //     // LoginFrame login = new LoginFrame();
-        //     // cadastro.dispose();
-        // }
+             //abre a tela de login
+            LoginFrame login = new LoginFrame();
+            cadastro.dispose();
+        }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
     

@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import com.mysql.cj.protocol.Resultset;
+
 
 public class userCadDAO {
     
@@ -55,6 +57,24 @@ public class userCadDAO {
         }
         return null;
 
+    }
+
+    public ResultSet contaExist(){
+        String sql = "select * from conta";
+
+        con = new connectDAO().getConnection();
+
+        try {
+            
+            prepare = con.prepareStatement(sql);
+
+            prepare.execute();
+            return prepare.getResultSet();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "userCadDAO" + e);
+        }
+        return null;
     }
     
 }
