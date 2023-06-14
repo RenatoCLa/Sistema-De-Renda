@@ -4,7 +4,7 @@ public class userID {
 
     private static int ID;
 
-    public int getID() {
+    public static int getID() {
         return ID;
     }
 

@@ -1,14 +1,49 @@
 package gastos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
+import BD.connectDAO;
+import BD.gastosDAO;
 
 public class Gastos {
     
+    private gastosDAO g = new gastosDAO();
     protected DefaultTableModel modelo = new DefaultTableModel();
 
     public Gastos(){
         this.modelo.addColumn("Gastos(R$)");
         this.modelo.addColumn("Dia");
+        String sql = "select * from gasto where idconta = ?";
+        Connection con = new connectDAO().getConnection();
+        PreparedStatement prepare;
+
+        try {
+            prepare = con.prepareStatement(sql);
+            prepare.setString(1, userID.getID()+"");
+            ResultSet rs = prepare.executeQuery();
+            java.sql.ResultSetMetaData rsm = rs.getMetaData();
+            int n = rsm.getColumnCount();
+
+            while (rs.next()){
+                Vector v = new Vector();
+                for(int i = 1; i<=n; i++){
+                    v.add(rs.getString("gastos"));
+                    v.add(rs.getString("dia"));
+                }
+                this.modelo.addRow(v);
+            }
+
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     public void setModelo(DefaultTableModel x){

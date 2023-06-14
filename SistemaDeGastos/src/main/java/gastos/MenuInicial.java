@@ -14,9 +14,12 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import BD.gastosDAO;
+
 
 public class MenuInicial implements ActionListener{
 
+    gastosDAO gDAO = new gastosDAO();
     //JFrame
     JFrame inicialFrame = new JFrame();
 
@@ -136,6 +139,7 @@ public class MenuInicial implements ActionListener{
                 String y = comboLista.getSelectedItem().toString();
                 //modeloTable.insertRow(0, new Object[]{x, y});
                 gastT.addModeloRow(x, y);
+                gDAO.adicionarGastos(x, y, userID.getID());
                 valorGasto.setText("");
             }
             
@@ -144,7 +148,9 @@ public class MenuInicial implements ActionListener{
         if(e.getSource() == removerGastos){
             //esse comando aqui remove o item selecionado na tabela, caso vc clique no botao de removerGastos
             int x = gastosLista.convertRowIndexToModel(gastosLista.getSelectedRow());
-            //modeloTable.removeRow(x);
+            int y = gastosLista.getSelectedRow();
+            gastosLista.getValueAt(y, 0);
+            gDAO.removerGastos(gastosLista.getValueAt(y, 0).toString(), gastosLista.getValueAt(y, 1).toString(), userID.getID());
             gastT.deleteModeloRow(x);
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
