@@ -27,7 +27,7 @@ public class MenuInicial implements ActionListener{
 
     //Componentes da tela
     //Label (variaveis de texto)
-    JLabel titulo = new JLabel("Gerenciador de Gastos Mensais");
+    JLabel titulo = new JLabel("Gerenciador de Gastos");
     JLabel gastosContador = new JLabel("Gastos: R$");
     //Buttons (botoes)
     JButton graficoDisplay = new JButton("Grafico de gastos");
@@ -71,7 +71,7 @@ public class MenuInicial implements ActionListener{
 
         //configurar componentes da tela
         //configurar titulo
-        titulo.setBounds(100, 5, 600, 50);
+        titulo.setBounds(190, 5, 600, 50);
         //setBounds é um comando que posiciona o objeto na tela, vc pode colocar 4 valores
         //setBounds (posiçãoX, posiçãoY, largura, altura)
         titulo.setFont(fonteTitulo); //altera a fonte
