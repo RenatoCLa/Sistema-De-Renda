@@ -3,17 +3,18 @@ package gastos;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import BD.userLogDAO;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class LoginFrame implements ActionListener{
-    
-    private String nome;
-    private String senha;
-
     //JFrame
     JFrame login = new JFrame();
 
@@ -39,7 +40,7 @@ public class LoginFrame implements ActionListener{
     Font fonte4 = new Font("SansSerif", Font.BOLD, 48);
     Font fonte5 = new Font("SansSerif", Font.BOLD, 14);
 
-    LoginFrame(Conta c){
+    LoginFrame(){
         //titulo
         titulo.setBounds(235, 65, 200, 55);
         titulo.setFont(fonte4);
@@ -101,10 +102,6 @@ public class LoginFrame implements ActionListener{
         login.add(senhaField);
         login.add(titulo);
         login.add(cadBt);
-
-        this.senha = c.getSenha();
-        this.nome = c.getNome();
-
         //Deixar a tela visivel
         login.setVisible(true);
 
@@ -123,14 +120,30 @@ public class LoginFrame implements ActionListener{
 
         if(e.getSource() == logBt){
 
-            //abre o menu inicial
-            String usuarioTxt = nomeField.getText();
-            char[] pass = senhaField.getPassword();
-            String senhaTxt = new String(pass);
+            try {
 
-            if(usuarioTxt.equals(this.nome) && senhaTxt.equals(this.senha)){
-                MenuInicial inicio = new MenuInicial();
-                login.dispose();
+                String usuarioTxt = nomeField.getText();
+                char[] pass = senhaField.getPassword();
+                String senhaTxt = new String(pass);
+                Conta c1 = new Conta(usuarioTxt, senhaTxt);
+
+                userLogDAO userdao = new userLogDAO();
+
+                ResultSet resultUser = userdao.verificarUser(c1);
+
+                if (resultUser.next()){
+                    int x = resultUser.getInt(1);
+                    userID.setID(x);
+                    MenuInicial inicio = new MenuInicial();
+                    login.dispose();
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Usuário ou senha inválido", "Conta inválida",0);
+                }
+
+
+            } catch (Exception error) {
+                JOptionPane.showMessageDialog(cadBt, error.getMessage());
             }
         }
         //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");

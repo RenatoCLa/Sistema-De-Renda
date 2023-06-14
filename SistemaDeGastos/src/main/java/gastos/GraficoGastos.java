@@ -7,7 +7,6 @@ import java.awt.event.ItemListener;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.table.DefaultTableModel;
 
 public class GraficoGastos {
     
