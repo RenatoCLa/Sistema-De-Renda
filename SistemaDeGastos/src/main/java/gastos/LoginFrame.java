@@ -3,11 +3,16 @@ package gastos;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import BD.userLogDAO;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class LoginFrame implements ActionListener{
     
@@ -123,15 +128,35 @@ public class LoginFrame implements ActionListener{
 
         if(e.getSource() == logBt){
 
-            //abre o menu inicial
-            String usuarioTxt = nomeField.getText();
-            char[] pass = senhaField.getPassword();
-            String senhaTxt = new String(pass);
+            try {
 
-            if(usuarioTxt.equals(this.nome) && senhaTxt.equals(this.senha)){
+                String usuarioTxt = nomeField.getText();
+                char[] pass = senhaField.getPassword();
+                String senhaTxt = new String(pass);
+                Conta c1 = new Conta(usuarioTxt, senhaTxt);
+
+                userLogDAO userdao = new userLogDAO();
+
+                ResultSet resultUser = userdao.verificarUser(c1);
+
+                if (resultUser.next()){
+                    MenuInicial inicio = new MenuInicial();
+                    login.dispose();
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Usuário ou senha inválido", "Conta inválida",0);
+                }
+
+
+            } catch (Exception error) {
+                JOptionPane.showMessageDialog(cadBt, error.getMessage());
+            }
+
+
+            /* if(usuarioTxt.equals(this.nome) && senhaTxt.equals(this.senha)){
                 MenuInicial inicio = new MenuInicial();
                 login.dispose();
-            }
+            } */
         }
         //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }

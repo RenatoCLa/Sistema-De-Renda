@@ -3,12 +3,16 @@ package gastos;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import BD.userCadDAO;
 
 public class CadastroFrame implements ActionListener {
 
@@ -114,10 +118,24 @@ public class CadastroFrame implements ActionListener {
             char[] pass = senhaField.getPassword();
             String senha = new String(pass);
             if(nome.isBlank() && senha.isBlank()){
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválido", "Conta inválida", 0);
             }else{
                 Conta c1 = new Conta(nome, senha);
-                LoginFrame login = new LoginFrame(c1);
-                cadastro.dispose();
+                userCadDAO cad = new userCadDAO();
+                
+                try {
+                    if(cad.contaExist(nome).next()){
+                        JOptionPane.showMessageDialog(null, "Conta já existe");
+                    }else{
+                        cad.cadastrarUser(c1);
+                        LoginFrame login = new LoginFrame(c1);
+                        cadastro.dispose();
+                    }
+                } catch (SQLException e1) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                
+                
             }
             
         }
