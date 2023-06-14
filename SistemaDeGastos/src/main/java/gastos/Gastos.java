@@ -15,7 +15,12 @@ import BD.gastosDAO;
 public class Gastos {
     
     private gastosDAO g = new gastosDAO();
-    protected DefaultTableModel modelo = new DefaultTableModel();
+    protected DefaultTableModel modelo = new DefaultTableModel(){
+        @Override
+        public boolean isCellEditable(int row, int column){
+            return false;
+        }
+    };
 
     public Gastos(){
         this.modelo.addColumn("Gastos(R$)");
