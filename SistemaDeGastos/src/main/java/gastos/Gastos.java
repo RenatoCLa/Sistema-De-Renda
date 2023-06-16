@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.CollationElementIterator;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
@@ -14,11 +15,37 @@ import BD.gastosDAO;
 
 public class Gastos {
     
+    Connection con;
+    PreparedStatement prepare;
+
     private gastosDAO g = new gastosDAO();
     protected DefaultTableModel modelo = new DefaultTableModel(){
         @Override
-        public boolean isCellEditable(int row, int column){
-            return false;
+        public void setValueAt(Object aValue, int aRow, int aColumn) {
+        try {
+
+            String sql;
+
+            if(aColumn == 0){
+                sql = "update gasto set gastos = ? where gastos = ? and dia = ? limit 1";
+            }else{
+                sql = "update gasto set dia = ? where gastos = ? and dia = ? limit 1";
+            }
+            
+            con = new connectDAO().getConnection();
+            prepare = con.prepareStatement(sql);
+            prepare.setString(1, (aValue.toString()).replaceAll("[^\\p{Digit}]", ""));
+            prepare.setString(2,  this.getValueAt(aRow, 0)+"");
+            prepare.setString(3, this.getValueAt(aRow, 1)+"");
+            prepare.executeUpdate();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        @SuppressWarnings("unchecked")
+        Vector<Object> rowVector = dataVector.elementAt(aRow);
+        rowVector.setElementAt((aValue.toString()).replaceAll("[^\\p{Digit}]", ""), aColumn);
+        fireTableCellUpdated(aRow, aColumn);
         }
     };
 
@@ -26,8 +53,8 @@ public class Gastos {
         this.modelo.addColumn("Gastos(R$)");
         this.modelo.addColumn("Dia");
         String sql = "select * from gasto where idconta = ?";
-        Connection con = new connectDAO().getConnection();
-        PreparedStatement prepare;
+        con = new connectDAO().getConnection();
+        
 
         try {
             prepare = con.prepareStatement(sql);
