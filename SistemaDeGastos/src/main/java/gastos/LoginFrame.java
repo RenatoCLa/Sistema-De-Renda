@@ -42,52 +42,52 @@ public class LoginFrame implements ActionListener{
 
     LoginFrame(){
         //titulo
-        titulo.setBounds(235, 65, 200, 55);
+        titulo.setBounds(80, 65, 275, 50);
         titulo.setFont(fonte4);
-        titulo.setForeground(Color.white);
+        titulo.setForeground(Color.black);
 
         //texto "nome"
-        usuarioLabel.setBounds(75, 200, 125, 25);
-        usuarioLabel.setForeground(Color.white);
+        usuarioLabel.setBounds(79, 175, 125, 25);
         usuarioLabel.setFont(fonte1);
+        usuarioLabel.setForeground(Color.black);
 
         //campo de nome
-        nomeField.setBounds(175, 200, 275, 25);
+        nomeField.setBounds(75, 200, 275, 25);
         nomeField.setFont(fonte2);
         nomeField.setCursor(new Cursor(Cursor.TEXT_CURSOR));//isso aqui é pro icone do mouse mudar caso ele esteja em cima desse componente
 
         //texto "senha"
-        senhaLabel.setBounds(90, 275, 125, 25);
+        senhaLabel.setBounds(79, 250, 125, 25);
         senhaLabel.setFont(fonte1);
-        senhaLabel.setForeground(Color.white);
+        senhaLabel.setForeground(Color.black);
 
         //campo de senha
-        senhaField.setBounds(175, 275, 275, 25);
+        senhaField.setBounds(75, 275, 275, 25);
         senhaField.setFont(fonte2);
         senhaField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 
         //Botao login
-        logBt.setBounds(240, 350, 120, 35);
+        logBt.setBounds(75, 350, 140, 35);
         logBt.setFont(fonte1);
         logBt.setFocusable(false);
         logBt.addActionListener(this);
         logBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //Botao redirecionar para tela de cadastro
-        cadBt.setBounds(262, 385, 75, 25);
+        cadBt.setBounds(220, 355, 75, 25);
         cadBt.setFont(fonte5);
         cadBt.setFocusable(false);
         cadBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        cadBt.setForeground(Color.white);
+        cadBt.setForeground(Color.black);
         cadBt.addActionListener(this);
         cadBt.setBackground(new Color(50,100,200));
         cadBt.setBorder(null);
         cadBt.setContentAreaFilled(false);
         
         //tela login
-        login.setSize(600, 500);
-        login.getContentPane().setBackground(new Color(50, 100, 200));
-        login.setTitle("Login");
+        login.setSize(430, 500);
+        login.getContentPane().setBackground(new Color(245, 232, 192));
+        login.setTitle("Sistema de Gastos");
         login.setResizable(false);
         login.setLocationRelativeTo(null);
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

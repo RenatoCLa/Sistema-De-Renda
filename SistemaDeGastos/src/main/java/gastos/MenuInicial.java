@@ -14,12 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-import BD.gastosDAO;
-
 
 public class MenuInicial implements ActionListener{
 
-    gastosDAO gDAO = new gastosDAO();
     //JFrame
     JFrame inicialFrame = new JFrame();
 
@@ -27,7 +24,7 @@ public class MenuInicial implements ActionListener{
 
     //Componentes da tela
     //Label (variaveis de texto)
-    JLabel titulo = new JLabel("Gerenciador de Gastos");
+    JLabel titulo = new JLabel("Gerenciador de Gastos Mensais");
     JLabel gastosContador = new JLabel("Gastos: R$");
     //Buttons (botoes)
     JButton graficoDisplay = new JButton("Grafico de gastos");
@@ -71,7 +68,7 @@ public class MenuInicial implements ActionListener{
 
         //configurar componentes da tela
         //configurar titulo
-        titulo.setBounds(190, 5, 600, 50);
+        titulo.setBounds(100, 5, 600, 50);
         //setBounds é um comando que posiciona o objeto na tela, vc pode colocar 4 valores
         //setBounds (posiçãoX, posiçãoY, largura, altura)
         titulo.setFont(fonteTitulo); //altera a fonte
@@ -139,7 +136,6 @@ public class MenuInicial implements ActionListener{
                 String y = comboLista.getSelectedItem().toString();
                 //modeloTable.insertRow(0, new Object[]{x, y});
                 gastT.addModeloRow(x, y);
-                gDAO.adicionarGastos(x, y, userID.getID());
                 valorGasto.setText("");
             }
             
@@ -148,9 +144,7 @@ public class MenuInicial implements ActionListener{
         if(e.getSource() == removerGastos){
             //esse comando aqui remove o item selecionado na tabela, caso vc clique no botao de removerGastos
             int x = gastosLista.convertRowIndexToModel(gastosLista.getSelectedRow());
-            int y = gastosLista.getSelectedRow();
-            gastosLista.getValueAt(y, 0);
-            gDAO.removerGastos(gastosLista.getValueAt(y, 0).toString(), gastosLista.getValueAt(y, 1).toString(), userID.getID());
+            //modeloTable.removeRow(x);
             gastT.deleteModeloRow(x);
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
