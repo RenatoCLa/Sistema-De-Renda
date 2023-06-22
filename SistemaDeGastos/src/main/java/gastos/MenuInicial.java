@@ -24,7 +24,7 @@ public class MenuInicial implements ActionListener{
 
     //Componentes da tela
     //Label (variaveis de texto)
-    JLabel titulo = new JLabel("Gerenciador de Gastos Mensais");
+    JLabel titulo = new JLabel("Olá");
     JLabel gastosContador = new JLabel("Gastos: R$");
     //Buttons (botoes)
     JButton graficoDisplay = new JButton("Grafico de gastos");
@@ -68,17 +68,17 @@ public class MenuInicial implements ActionListener{
 
         //configurar componentes da tela
         //configurar titulo
-        titulo.setBounds(100, 5, 600, 50);
+        titulo.setBounds(15, 5, 600, 50);
         //setBounds é um comando que posiciona o objeto na tela, vc pode colocar 4 valores
         //setBounds (posiçãoX, posiçãoY, largura, altura)
         titulo.setFont(fonteTitulo); //altera a fonte
-        titulo.setForeground(Color.white); // altera a cor da fonte
-        //configurar contador de gastos
-        gastosContador.setBounds(30, 175, 200, 35);
-        gastosContador.setFont(gastos);
-        gastosContador.setForeground(Color.white);
+        titulo.setForeground(Color.black); // altera a cor da fonte
+        //configurar contador de gastos (Desablitado pois não consegui fazer funcionar -Ramael)
+        //gastosContador.setBounds(30, 175, 200, 35);
+        //gastosContador.setFont(gastos);
+        //gastosContador.setForeground(Color.black);
         //configurar botao de visualização  de grafico
-        graficoDisplay.setBounds(25, 125, 150, 40);
+        graficoDisplay.setBounds(18, 525, 365, 30);
         graficoDisplay.addActionListener(this);
         //Configurar tabela de gastos
         //modeloTable.addColumn("Gastos(R$)"); //cria a coluna de gastos na tabela
@@ -86,33 +86,34 @@ public class MenuInicial implements ActionListener{
         gastosLista.getTableHeader().setFont(listaFonte); // altera a fonte
         gastosLista.getTableHeader().getColumnModel().getColumn(0).setPreferredWidth(225); // isso aqui deixa a coluna de gastos maior que a coluna de dias
         gastosLista.getTableHeader().setResizingAllowed(false); //isso aqui faz com que as colunas n possam mudar de tamanho
-        painelScroll.setBounds(400, 300, 350, 250);
+        painelScroll.setBounds(25, 300, 350, 225);
         //preocupa com isso aqui n, serve pra deixar a coluna de dias com aquele menu de seleção
         TableColumn col = gastosLista.getColumnModel().getColumn(1); 
         col.setCellEditor(new DefaultCellEditor(combo));
         gastosLista.setAutoCreateRowSorter(true); //isso aqui é pra poder escolher em qual ordem os itens aparecem na coluna
         //Configurar botões de interação com a tabela /adicionar gastos
-        addGastos.setBounds(215, 415, 150, 30);
+        addGastos.setBounds(15, 265, 150, 30);
         addGastos.setFont(fonteBotao);
         addGastos.addActionListener(this); // isso aqui é pra poder pegar a interação com o botão no codigo
         //Configurar botões de interação com a tabela /remover gastos
         removerGastos.setFont(fonteBotao);
         removerGastos.addActionListener(this);
-        removerGastos.setBounds(215, 500, 150, 30);
+        removerGastos.setBounds(160, 265, 150, 30);
         //Configurar input de gastos
-        valorGasto.setBounds(200, 350, 175, 50);
+        valorGasto.setBounds(21, 210, 283, 50);
         valorGasto.setFont(gastosInputFont);
         //Configurar menu de seleção de dias
-        comboLista.setBounds(215, 300, 50, 25);
+        comboLista.setBounds(325, 215, 50, 25);
 
 
         //configurar tela
-        inicialFrame.getContentPane().setBackground(new Color(50, 100, 200)); // troca o cor do plano de fundo
-        inicialFrame.setSize(800, 600); // ajusta o tamanho da tela
+        inicialFrame.getContentPane().setBackground(new Color(245, 232, 192)); // troca o cor do plano de fundo
+        inicialFrame.setSize(400, 600); // ajusta o tamanho da tela
         inicialFrame.setLocationRelativeTo(null); // deixa a tela centralizada
         inicialFrame.setLayout(null); // isso aqui é pra gente poder definir a posição final de um componente pelo codigo la de cima
         inicialFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ao clicar no X, o aplicativo fecha
         inicialFrame.setResizable(false);
+        inicialFrame.setTitle("Sistema de Gastos");
         
         inicialFrame.setVisible(true); // deixar a tela visivel
     }

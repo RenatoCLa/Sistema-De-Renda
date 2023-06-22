@@ -65,7 +65,7 @@ public class GraficoGastos {
         tela.setLayout(null);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocationRelativeTo(null);
-        tela.getContentPane().setBackground(new Color(50, 100, 200));
+        tela.getContentPane().setBackground(new Color(245, 232, 192));
         tela.setResizable(false);
         tela.setVisible(true);
         
