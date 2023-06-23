@@ -55,7 +55,7 @@ public class Gastos {
 
         @Override
         public void removeRow(int row){
-            Vector x = dataVector.get(row);
+            //Vector x = dataVector.get(row);
             ArrayList<String> values = new ArrayList<String>();
             values.add(dataVector.elementAt(row).get(0).toString());
             values.add(dataVector.elementAt(row).get(1).toString());

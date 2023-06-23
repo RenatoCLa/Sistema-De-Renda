@@ -42,6 +42,8 @@ public class AdicionarGastos {
                 JOptionPane.showMessageDialog(null, "Preencha os campos com informações validas!", "Erro", 0);
             } else {
                 new gastosDAO().adicionarGastos(tipoVar, gastoVar, diaVar, mesVar, ID);
+                gastosValor.setText("");
+                tipoGasto.setText("");
             }
 
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
@@ -58,8 +60,8 @@ public class AdicionarGastos {
             }
 
         });
-        tipoGasto = x.createTextField("oi", new Font("SansSerif", Font.PLAIN, 16), 200, 50, 125, 30);
-        gastosValor = x.createTextField("a", new Font("SansSerif", Font.PLAIN, 16), 0, 50, 75, 30);
+        tipoGasto = x.createTextField("", new Font("SansSerif", Font.PLAIN, 16), 200, 50, 125, 30);
+        gastosValor = x.createTextField("", new Font("SansSerif", Font.PLAIN, 16), 0, 50, 75, 30);
         selectDia = x.createComboBox(1, 350, 50, 50, 30, new Font("SansSerif", Font.PLAIN, 16));
         selectMes = x.createComboBox(2, 450, 50, 100, 30, new Font("SansSerif", Font.PLAIN, 16));
 
@@ -70,9 +72,5 @@ public class AdicionarGastos {
         tela.add(selectDia);
         tela.add(selectMes);
         tela.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new AdicionarGastos();
     }
 }

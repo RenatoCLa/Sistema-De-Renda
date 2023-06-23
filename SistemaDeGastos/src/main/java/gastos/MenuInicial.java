@@ -3,13 +3,18 @@ package gastos;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Vector;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.TableColumn;
 
+import BD.gastosDAO;
 
 public class MenuInicial{
 
@@ -24,6 +29,7 @@ public class MenuInicial{
     JLabel titulo = new JLabel("Gerenciador de Gastos");
     //Buttons (botoes)
     JButton removerGastos;
+    JButton editarGastos;
     JButton telaAddGastos;
     //Table (componentes da tabela)
     JTable gastosLista = new JTable(gastT.modelo);
@@ -65,6 +71,29 @@ public class MenuInicial{
             }
             
         });
+        editarGastos = ui.createButton("Editar Gastos", 375, 235, 150, 30);
+        editarGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
+        editarGastos.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Vector x = gastT.modelo.getDataVector().elementAt(gastosLista.convertColumnIndexToModel(gastosLista.getSelectedRow()));
+                ArrayList<String> valor = new ArrayList<String>();
+                System.out.println(x);
+                valor.add(x.get(0).toString());
+                valor.add(x.get(1).toString());
+                valor.add(x.get(2).toString());
+                valor.add(x.get(3).toString());
+                try {
+                    new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1) ,valor.get(2), valor.get(3)));
+                } catch (SQLException e1) {
+                    JOptionPane.showMessageDialog(editarGastos, e1);
+                }
+                inicialFrame.dispose();
+                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            }
+            
+        });
         
         //configurar titulo
         titulo.setBounds(190, 5, 600, 50);
@@ -94,6 +123,7 @@ public class MenuInicial{
         inicialFrame.add(removerGastos);
         inicialFrame.add(painelScroll);
         inicialFrame.add(telaAddGastos);
+        inicialFrame.add(editarGastos);
         
         inicialFrame.setVisible(true); // deixar a tela visivel
     }
