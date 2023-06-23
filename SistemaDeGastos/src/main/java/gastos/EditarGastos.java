@@ -43,8 +43,8 @@ public class EditarGastos {
                 JOptionPane.showMessageDialog(null, "Preencha os campos com informações validas!", "Erro", 0);
             } else {
                 new gastosDAO().editarGastos(tipoVar, gastoVar, diaVar, mesVar, ID);
-                gastosValor.setText("");
-                tipoGasto.setText("");
+                new MenuInicial();
+                tela.dispose();
             }
 
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");

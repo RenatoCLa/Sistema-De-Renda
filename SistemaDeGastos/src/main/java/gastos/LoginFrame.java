@@ -114,7 +114,7 @@ public class LoginFrame implements ActionListener{
         if(e.getSource() == cadBt){
 
             //abre a tela de cadastro
-            CadastroFrame cad = new CadastroFrame();
+            new CadastroFrame();
             login.dispose();
         }
 
@@ -134,7 +134,7 @@ public class LoginFrame implements ActionListener{
                 if (resultUser.next()){
                     int x = resultUser.getInt(1);
                     userID.setID(x);
-                    MenuInicial inicio = new MenuInicial();
+                    new MenuInicial();
                     login.dispose();
 
                 }else{

@@ -47,7 +47,7 @@ public class MenuInicial{
     //esse codigo vai ser chamado, quando um menu for criado
     MenuInicial(){
 
-        telaAddGastos = ui.createButton("Adicionar Gastos", 50, 235, 150, 30);
+        telaAddGastos = ui.createButton("Adicionar Gastos", 25, 282, 150, 30);
         telaAddGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
         telaAddGastos.addActionListener(new ActionListener() {
             @Override
@@ -59,7 +59,7 @@ public class MenuInicial{
             }
             
         });
-        removerGastos = ui.createButton("Remover Gastos", 250, 235, 150, 30);
+        removerGastos = ui.createButton("Remover Gastos", 325, 282, 150, 30);
         removerGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
         removerGastos.addActionListener(new ActionListener() {
 
@@ -71,7 +71,7 @@ public class MenuInicial{
             }
             
         });
-        editarGastos = ui.createButton("Editar Gastos", 375, 235, 150, 30);
+        editarGastos = ui.createButton("Editar Gastos", 175, 282, 150, 30);
         editarGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
         editarGastos.addActionListener(new ActionListener() {
 
@@ -107,7 +107,7 @@ public class MenuInicial{
         gastosLista.getTableHeader().getColumnModel().getColumn(1).setPreferredWidth(100);
         gastosLista.getTableHeader().getColumnModel().getColumn(3).setPreferredWidth(225);
         gastosLista.getTableHeader().setResizingAllowed(false); //isso aqui faz com que as colunas n possam mudar de tamanho
-        painelScroll.setBounds(400, 300, 350, 250);
+        painelScroll.setBounds(25, 315, 725, 225);
         gastosLista.setAutoCreateRowSorter(true); //isso aqui é pra poder escolher em qual ordem os itens aparecem na coluna
         //Configurar botões de interação com a tabela /remover gastos
         //configurar tela

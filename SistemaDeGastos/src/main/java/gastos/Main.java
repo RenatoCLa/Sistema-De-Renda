@@ -18,6 +18,7 @@ public class Main {
             LoginFrame log = new LoginFrame();
         }else{
             CadastroFrame cad = new CadastroFrame();
+            DB.createAdminAccount();
             
         }
         
