@@ -134,8 +134,14 @@ public class LoginFrame implements ActionListener{
                 if (resultUser.next()){
                     int x = resultUser.getInt(1);
                     userID.setID(x);
-                    new MenuInicial();
-                    login.dispose();
+                    if(x == 1){
+                        new AdminMenu();
+                        login.dispose();
+                    }else{
+                        new MenuInicial();
+                        login.dispose();
+                    }
+                    
 
                 }else{
                     JOptionPane.showMessageDialog(null, "Usuário ou senha inválido", "Conta inválida",0);

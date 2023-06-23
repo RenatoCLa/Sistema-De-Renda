@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class UI {
@@ -63,4 +64,15 @@ public class UI {
 
         return jcb; 
     }
+
+    public JLabel createText(String titulo, int x, int y, int width, int height, Font fonte, Color cor){
+        JLabel text = new JLabel();
+        text.setText(titulo);
+        text.setBounds(x, y, width, height);
+        text.setFont(fonte);
+        text.setForeground(cor);
+
+        return text;
+    }
+
 }

@@ -102,6 +102,39 @@ public class Gastos {
         }
     }
 
+    public Gastos(String x){
+        this.modelo.addColumn("Tipo");
+        this.modelo.addColumn("R$");
+        this.modelo.addColumn("Dia");
+        this.modelo.addColumn("Mês");
+        this.modelo.addColumn("ID");
+        String sql = "select * from gasto";
+        con = new connectDAO().getConnection();
+
+        try {
+            prepare = con.prepareStatement(sql);
+            ResultSet rs = prepare.executeQuery();
+            java.sql.ResultSetMetaData rsm = rs.getMetaData();
+            int n = rsm.getColumnCount();
+
+            while (rs.next()){
+                Vector<String> v = new Vector<>();
+                for(int i = 1; i<=n; i++){
+                    v.add(rs.getString("tipo"));
+                    v.add(rs.getString("gastos"));
+                    v.add(rs.getString("dia"));
+                    v.add(rs.getString("mes"));
+                    v.add(rs.getString("idconta"));
+                }
+                this.modelo.addRow(v);
+            }
+
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
     public void setModelo(DefaultTableModel x){
         this.modelo = x;
     }

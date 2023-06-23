@@ -121,4 +121,23 @@ public class gastosDAO {
 
         return null;
     }
+
+    public ResultSet getValues(){
+
+        String sql = "select * from gasto";
+
+        con = new connectDAO().getConnection();
+
+        try {
+            prepare = con.prepareStatement(sql);
+            ResultSet rs = prepare.executeQuery();
+            rs.next();
+            return rs;
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "getValuesDAO"+e);
+        }
+
+        return null;
+    }
 }

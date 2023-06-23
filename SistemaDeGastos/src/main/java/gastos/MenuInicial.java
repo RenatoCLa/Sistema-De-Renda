@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 
 import BD.gastosDAO;
 
@@ -87,7 +88,7 @@ public class MenuInicial{
                 try {
                     new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1) ,valor.get(2), valor.get(3)));
                 } catch (SQLException e1) {
-                    JOptionPane.showMessageDialog(editarGastos, e1);
+                    JOptionPane.showMessageDialog(null, e1);
                 }
                 inicialFrame.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
@@ -108,7 +109,12 @@ public class MenuInicial{
         gastosLista.getTableHeader().getColumnModel().getColumn(3).setPreferredWidth(225);
         gastosLista.getTableHeader().setResizingAllowed(false); //isso aqui faz com que as colunas n possam mudar de tamanho
         painelScroll.setBounds(25, 315, 725, 225);
-        gastosLista.setAutoCreateRowSorter(true); //isso aqui é pra poder escolher em qual ordem os itens aparecem na coluna
+        DefaultTableCellRenderer render = new DefaultTableCellRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        gastosLista.getColumnModel().getColumn(0).setCellRenderer(render);
+        gastosLista.getColumnModel().getColumn(1).setCellRenderer(render);
+        gastosLista.getColumnModel().getColumn(2).setCellRenderer(render);
+        gastosLista.getColumnModel().getColumn(3).setCellRenderer(render);
         //Configurar botões de interação com a tabela /remover gastos
         //configurar tela
         inicialFrame.getContentPane().setBackground(new Color(50, 100, 200)); // troca o cor do plano de fundo

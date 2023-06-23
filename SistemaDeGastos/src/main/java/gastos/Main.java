@@ -15,9 +15,9 @@ public class Main {
         userCadDAO contaE = new userCadDAO();
         //Começa o aplicativo, chamando a tela de login
         if(contaE.contaExist().next()){
-            LoginFrame log = new LoginFrame();
+            new LoginFrame();
         }else{
-            CadastroFrame cad = new CadastroFrame();
+            new CadastroFrame();
             DB.createAdminAccount();
             
         }
