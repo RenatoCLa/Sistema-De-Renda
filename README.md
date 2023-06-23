@@ -12,7 +12,7 @@ Para entrar na plataforma você deve realizar um cadastro, coloque o   usuário 
 
 2. Log-in.
 Para realizar log-in na plataforma insira as mesmas credenciais quais você usou durante a criação do cadastro
-![Uploading Captura de Tela 2023-06-22 às 20.24.14.png…]()
+
 
 3. Gerenciamento de Gastos.
 Pronto! você está logado no app, agora você pode usufruirde todas as ferramentas presentes no app
