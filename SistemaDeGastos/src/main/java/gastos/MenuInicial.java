@@ -111,6 +111,7 @@ public class MenuInicial{
         painelScroll.setBounds(25, 315, 725, 225);
         DefaultTableCellRenderer render = new DefaultTableCellRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
+        gastosLista.setAutoCreateRowSorter(true);
         gastosLista.getColumnModel().getColumn(0).setCellRenderer(render);
         gastosLista.getColumnModel().getColumn(1).setCellRenderer(render);
         gastosLista.getColumnModel().getColumn(2).setCellRenderer(render);

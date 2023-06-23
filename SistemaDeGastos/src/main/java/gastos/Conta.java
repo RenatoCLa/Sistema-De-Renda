@@ -4,7 +4,7 @@ public class Conta{
     protected String nomeUser;
     protected String senhaUser;
 
-     public Conta(String nome , String senha){
+    public Conta(String nome , String senha){
          this.nomeUser = nome;
          this.senhaUser = senha;
     }

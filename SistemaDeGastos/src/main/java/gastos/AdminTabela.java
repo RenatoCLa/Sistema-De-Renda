@@ -100,6 +100,7 @@ public class AdminTabela {
         jt.getColumnModel().getColumn(2).setCellRenderer(render);
         jt.getColumnModel().getColumn(3).setCellRenderer(render);
         jt.getColumnModel().getColumn(4).setCellRenderer(render);
+        jt.setAutoCreateRowSorter(true);
         
         tela.add(tabela);
         tela.add(add);
