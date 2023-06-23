@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import BD.connectDAO;
+import BD.gastosDAO;
 
 public class Gastos {
     
@@ -17,6 +19,12 @@ public class Gastos {
     PreparedStatement prepare;
 
     protected DefaultTableModel modelo = new DefaultTableModel(){
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+
         @Override
         public void setValueAt(Object aValue, int aRow, int aColumn) {
         try {
@@ -44,11 +52,28 @@ public class Gastos {
         rowVector.setElementAt((aValue.toString()).replaceAll("[^\\p{Digit}]", ""), aColumn);
         fireTableCellUpdated(aRow, aColumn);
         }
+
+        @Override
+        public void removeRow(int row){
+            Vector x = dataVector.get(row);
+            ArrayList<String> values = new ArrayList<String>();
+            values.add(dataVector.elementAt(row).get(0).toString());
+            values.add(dataVector.elementAt(row).get(1).toString());
+            values.add(dataVector.elementAt(row).get(2).toString());
+            values.add(dataVector.elementAt(row).get(3).toString());
+            System.out.println(values);
+            
+            new gastosDAO().removerGastos(values.get(0), values.get(1),values.get(2),values.get(3), userID.getID());
+            dataVector.removeElementAt(row);
+            fireTableRowsDeleted(row, row);
+        }
     };
 
     public Gastos(){
-        this.modelo.addColumn("Gastos(R$)");
+        this.modelo.addColumn("Tipo");
+        this.modelo.addColumn("R$");
         this.modelo.addColumn("Dia");
+        this.modelo.addColumn("Mês");
         String sql = "select * from gasto where idconta = ?";
         con = new connectDAO().getConnection();
         
@@ -63,8 +88,10 @@ public class Gastos {
             while (rs.next()){
                 Vector<String> v = new Vector<>();
                 for(int i = 1; i<=n; i++){
+                    v.add(rs.getString("tipo"));
                     v.add(rs.getString("gastos"));
                     v.add(rs.getString("dia"));
+                    v.add(rs.getString("mes"));
                 }
                 this.modelo.addRow(v);
             }

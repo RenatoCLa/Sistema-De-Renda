@@ -11,17 +11,19 @@ public class gastosDAO {
     Connection con;
     PreparedStatement prepare;
 
-    public void adicionarGastos(String gasto, String dia, int ID){
+    public void adicionarGastos(String tipo, String gasto, String dia, String mes, int ID){
 
-        String sql = "insert into gasto (gastos, dia, idconta) values (?,?,?)";
+        String sql = "insert into gasto (tipo, gastos, dia, mes, idconta) values (?,?,?,?,?)";
         
         con = new connectDAO().getConnection();
         
         try {
             prepare = con.prepareStatement(sql);
-            prepare.setString(1, gasto);
-            prepare.setString(2, dia);
-            prepare.setString(3, ID+"");
+            prepare.setString(1, tipo);
+            prepare.setString(2, gasto);
+            prepare.setString(3, dia);
+            prepare.setString(4, mes);
+            prepare.setString(5, ID+"");
 
             prepare.execute();
             prepare.close();
@@ -31,17 +33,19 @@ public class gastosDAO {
         }
     }
 
-    public void removerGastos(String gasto, String dia, int iD){
+    public void removerGastos(String tipo, String gasto, String dia, String mes, int iD){
         
-        String sql = "delete from gasto where gastos = ? and dia = ? and idconta = ? limit 1";
+        String sql = "delete from gasto where tipo = ? and gastos = ? and dia = ? and mes = ? and idconta = ? limit 1";
         
         con = new connectDAO().getConnection();
         
         try {
             prepare = con.prepareStatement(sql);
-            prepare.setString(1, gasto);
-            prepare.setString(2, dia);
-            prepare.setString(3, iD+"");
+            prepare.setString(1, tipo);
+            prepare.setString(2, gasto);
+            prepare.setString(3, dia);
+            prepare.setString(4, mes);
+            prepare.setString(5, iD+"");
 
             prepare.execute();
             prepare.close();
@@ -49,6 +53,10 @@ public class gastosDAO {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "gastosDAO" + e);
         }
+    }
+
+    public void editarGastos(){
+        
     }
 
 }

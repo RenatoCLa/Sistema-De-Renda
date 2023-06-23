@@ -13,7 +13,7 @@ public class createDB {
 
     String sql2 = "CREATE TABLE IF NOT EXISTS `conta` (`ID` int(11) NOT NULL AUTO_INCREMENT,`user` varchar(50) DEFAULT '',`pass` varchar(50) DEFAULT '',PRIMARY KEY (`ID`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;";
 
-    String sql3 = "CREATE TABLE IF NOT EXISTS `gasto` (`ID` int(11) NOT NULL AUTO_INCREMENT,`gastos` int(20) DEFAULT NULL,`dia` int(11) DEFAULT NULL,`idconta` int(11) DEFAULT NULL,PRIMARY KEY (`ID`),KEY `FK_CONTA_ID` (`idconta`),CONSTRAINT `FK_CONTA_ID` FOREIGN KEY (`idconta`) REFERENCES `conta` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;";
+    String sql3 = "CREATE TABLE IF NOT EXISTS `gasto` (`ID` int(11) NOT NULL AUTO_INCREMENT, `tipo` varchar(50) DEFAULT NULL,`gastos` int(20) DEFAULT NULL,`dia` int(11) DEFAULT NULL, `mes` varchar(50) DEFAULT NULL,`idconta` int(11) DEFAULT NULL,PRIMARY KEY (`ID`),KEY `FK_CONTA_ID` (`idconta`),CONSTRAINT `FK_CONTA_ID` FOREIGN KEY (`idconta`) REFERENCES `conta` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;";
 
     String sql4 = "USE `renda`";
 
