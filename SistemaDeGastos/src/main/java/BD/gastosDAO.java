@@ -140,4 +140,24 @@ public class gastosDAO {
 
         return null;
     }
+
+    public ResultSet getValues(String ID, String mes){
+
+        String sql = "select gastos from gasto where idconta = ? and mes = ?";
+
+        con = new connectDAO().getConnection();
+
+        try {
+            prepare = con.prepareStatement(sql);
+            prepare.setString(1, ID);
+            prepare.setString(2, mes);
+            ResultSet rs = prepare.executeQuery();
+            return rs;
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "getValuesDAO"+e);
+        }
+
+        return null;
+    }
 }
