@@ -92,7 +92,6 @@ public class GerenciarConta {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                new AdminMenu();
                 tela.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
@@ -115,7 +114,8 @@ public class GerenciarConta {
         tela.add(remove);
         tela.add(add);
         tela.add(edit);
-        
+
+                
         tela.setVisible(true);
     }
 }

@@ -32,6 +32,7 @@ public class MenuInicial{
     JButton removerGastos;
     JButton editarGastos;
     JButton telaAddGastos;
+    JButton gastosMensal;
     //Table (componentes da tabela)
     JTable gastosLista = new JTable(gastT.modelo);
     JScrollPane painelScroll = new JScrollPane(gastosLista);
@@ -48,8 +49,9 @@ public class MenuInicial{
     //esse codigo vai ser chamado, quando um menu for criado
     MenuInicial(){
 
-        telaAddGastos = ui.createButton("Adicionar Gastos", 25, 282, 150, 30);
+        telaAddGastos = ui.createButton("Adicionar Gastos", 0, 120, 150, 30);
         telaAddGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
+        
         telaAddGastos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,8 +62,10 @@ public class MenuInicial{
             }
             
         });
-        removerGastos = ui.createButton("Remover Gastos", 325, 282, 150, 30);
+        
+        removerGastos = ui.createButton("Remover Gastos", 560, 120, 150, 30);
         removerGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
+        
         removerGastos.addActionListener(new ActionListener() {
 
             @Override
@@ -72,8 +76,10 @@ public class MenuInicial{
             }
             
         });
-        editarGastos = ui.createButton("Editar Gastos", 175, 282, 150, 30);
+        
+        editarGastos = ui.createButton("Editar Gastos", 170, 120, 150, 30);
         editarGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
+        
         editarGastos.addActionListener(new ActionListener() {
 
             @Override
@@ -96,8 +102,21 @@ public class MenuInicial{
             
         });
         
+        gastosMensal = ui.createButton("Visualizar gastos mensais", 340, 120, 200, 30);
+
+        gastosMensal.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                new GastosMensais();
+                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            }
+            
+        });
+
         //configurar titulo
-        titulo.setBounds(190, 5, 600, 50);
+        titulo.setBounds(150, 5, 600, 50);
         //setBounds é um comando que posiciona o objeto na tela, vc pode colocar 4 valores
         //setBounds (posiçãoX, posiçãoY, largura, altura)
         titulo.setFont(fonteTitulo); //altera a fonte
@@ -108,7 +127,7 @@ public class MenuInicial{
         gastosLista.getTableHeader().getColumnModel().getColumn(1).setPreferredWidth(100);
         gastosLista.getTableHeader().getColumnModel().getColumn(3).setPreferredWidth(225);
         gastosLista.getTableHeader().setResizingAllowed(false); //isso aqui faz com que as colunas n possam mudar de tamanho
-        painelScroll.setBounds(25, 315, 725, 225);
+        painelScroll.setBounds(0, 150, 725, 210);
         DefaultTableCellRenderer render = new DefaultTableCellRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
         gastosLista.setAutoCreateRowSorter(true);
@@ -119,13 +138,18 @@ public class MenuInicial{
         //Configurar botões de interação com a tabela /remover gastos
         //configurar tela
         inicialFrame.getContentPane().setBackground(new Color(50, 100, 200)); // troca o cor do plano de fundo
-        inicialFrame.setSize(800, 600); // ajusta o tamanho da tela
+        inicialFrame.setSize(725, 400); // ajusta o tamanho da tela
         inicialFrame.setLocationRelativeTo(null); // deixa a tela centralizada
         inicialFrame.setLayout(null); // isso aqui é pra gente poder definir a posição final de um componente pelo codigo la de cima
-        inicialFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ao clicar no X, o aplicativo fecha
+        if(userID.getID() == 1){
+            inicialFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        }else{
+            inicialFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
         inicialFrame.setResizable(false);
 
         //adicionar componentes na tela
+        inicialFrame.add(gastosMensal);
         inicialFrame.add(titulo);
         inicialFrame.add(removerGastos);
         inicialFrame.add(painelScroll);

@@ -139,7 +139,6 @@ public class LoginFrame implements ActionListener{
                         login.dispose();
                     }else{
                         new MenuInicial();
-                        new GastosMensais();
                         login.dispose();
                     }
                     

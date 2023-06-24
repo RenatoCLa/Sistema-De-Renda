@@ -21,11 +21,11 @@ public class AdminMenu {
     AdminMenu(){
 
         //Criar Componentes
-        tela = ui.createJFrame("Menu Admin", new Color(50, 100, 200), 600, 350);
-        gerenciarContas = ui.createButton("Gerenciar Contas", 0, 75, 125, 35);
-        gerenciarGastos = ui.createButton("Gerenciar Gastos", 0, 150, 125, 35);
-        gastosAdmin = ui.createButton("", 0, 225, 125, 35);
-        titulo = ui.createText("Menu Admin", 225, 5, 175, 45, new Font("SansSerif", Font.BOLD, 26), Color.white);
+        tela = ui.createJFrame("Menu Admin", new Color(50, 100, 200), 250, 300);
+        gerenciarContas = ui.createButton("Gerenciar Contas", 40, 100, 150, 35);
+        gerenciarGastos = ui.createButton("Gerenciar Gastos", 40, 150, 150, 35);
+        gastosAdmin = ui.createButton("Tabela de gastos", 40, 200, 150, 35);
+        titulo = ui.createText("Menu Admin", 40, 5, 175, 45, new Font("SansSerif", Font.BOLD, 26), Color.white);
         
         gerenciarGastos.addActionListener(new ActionListener() {
 
@@ -33,7 +33,6 @@ public class AdminMenu {
             public void actionPerformed(ActionEvent e) {
                 
                 new AdminTabela();
-                tela.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
             
@@ -45,7 +44,6 @@ public class AdminMenu {
             public void actionPerformed(ActionEvent e) {
 
                 new GerenciarConta();
-                tela.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
         });

@@ -90,7 +90,6 @@ public class AdminTabela {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                new AdminMenu();
                 tela.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }

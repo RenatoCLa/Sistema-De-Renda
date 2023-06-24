@@ -29,11 +29,11 @@ public class GastosMensais {
 
     GastosMensais(){
 
-        tela = ui.createJFrame("Calcular Gastos Mensais", new Color(50, 100, 200), 450, 250);
-        titulo = ui.createText("Calcular gastos de:", 50, 15, 250, 35, new Font("SansSerif", Font.BOLD, 22), Color.white);
-        selMes = ui.createComboBox(2, 250, 15, 100, 35, new Font("SansSerif", Font.BOLD, 16));
-        valor = ui.createText("Gastos:R$00,00", 50, 135, 250, 35, new Font("SansSerif", Font.BOLD, 22), Color.white);
-        calcular = ui.createButton("Gerar Gastos", 50, 100, 115, 35);
+        tela = ui.createJFrame("Calcular Gastos Mensais", new Color(50, 100, 200), 350, 225);
+        titulo = ui.createText("Calcular gastos de:", 15, 15, 250, 35, new Font("SansSerif", Font.BOLD, 22), Color.white);
+        selMes = ui.createComboBox(2, 215, 15, 100, 35, new Font("SansSerif", Font.BOLD, 16));
+        valor = ui.createText("Gastos:R$00,00", 15, 135, 250, 35, new Font("SansSerif", Font.BOLD, 22), Color.white);
+        calcular = ui.createButton("Gerar Gastos", 15, 100, 115, 35);
 
         calcular.addActionListener(new ActionListener() {
 
