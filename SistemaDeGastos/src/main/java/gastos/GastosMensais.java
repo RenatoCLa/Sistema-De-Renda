@@ -67,6 +67,7 @@ public class GastosMensais {
         tela.add(valor);
         tela.add(calcular);
 
+        tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setVisible(true);
     }
 }

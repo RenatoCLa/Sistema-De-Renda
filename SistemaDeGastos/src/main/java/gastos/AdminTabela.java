@@ -26,7 +26,6 @@ public class AdminTabela {
     JButton add;
     JButton remover;
     JButton editar;
-    JButton sair;
     JTable jt = new JTable(g.modelo);
     JScrollPane tabela = new JScrollPane(jt);
     
@@ -37,7 +36,6 @@ public class AdminTabela {
         add = ui.createButton("Adicionar Gastos", 25, 282, 150, 30);
         remover = ui.createButton("Remover Gastos", 325, 282, 150, 30);
         editar = ui.createButton("Editar Gastos", 175, 282, 150, 30);
-        sair = ui.createButton("Voltar", 475, 282, 150, 30);
 
         remover.addActionListener(new ActionListener() {
 
@@ -85,16 +83,6 @@ public class AdminTabela {
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }       
         });
-        sair.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                tela.dispose();
-                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-            }
-            
-        });
 
         tabela.setBounds(25, 315, 725, 225);
 
@@ -113,12 +101,12 @@ public class AdminTabela {
         jt.getColumnModel().getColumn(4).setCellRenderer(render);
         jt.setAutoCreateRowSorter(true);
         
-        tela.add(sair);
         tela.add(tabela);
         tela.add(add);
         tela.add(remover);
         tela.add(editar);
 
+        tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setVisible(true);
     }
 }

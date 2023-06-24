@@ -25,7 +25,6 @@ public class GerenciarConta {
     JButton edit;
     JButton add;
     JButton remove;
-    JButton sair;
 
 
     GerenciarConta(){
@@ -34,7 +33,6 @@ public class GerenciarConta {
         remove = ui.createButton("Remover Conta", 0, 0, 125, 35);
         add = ui.createButton("Adicionar Conta", 0, 50, 125, 35);
         edit = ui.createButton("Editar Conta", 0, 100, 125, 35);
-        sair = ui.createButton("Voltar", 0, 150, 125, 35);
         jscp.setBounds(25, 315, 725, 225);
 
         remove.addActionListener(new ActionListener() {
@@ -86,17 +84,6 @@ public class GerenciarConta {
             }
             
         });
-
-        sair.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                tela.dispose();
-                throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-            }
-            
-        });
         
         jt.getTableHeader().getColumnModel().getColumn(0).setPreferredWidth(100);
         jt.getTableHeader().getColumnModel().getColumn(1).setPreferredWidth(225);
@@ -109,13 +96,12 @@ public class GerenciarConta {
         jt.getColumnModel().getColumn(2).setCellRenderer(render);
         jt.setAutoCreateRowSorter(true);
 
-        tela.add(sair);
         tela.add(jscp);
         tela.add(remove);
         tela.add(add);
         tela.add(edit);
 
-                
+        tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);        
         tela.setVisible(true);
     }
 }
