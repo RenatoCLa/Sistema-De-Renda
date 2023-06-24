@@ -4,16 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import BD.connectDAO;
-import BD.gastosDAO;
 
-public class Contas {
+public class ContaTableInfo {
     
     Connection con;
     PreparedStatement prepare;
@@ -24,11 +22,10 @@ public class Contas {
         public boolean isCellEditable(int row, int column) {
             return false;
         }
-
         
     };
 
-    public Contas(){
+    public ContaTableInfo(){
         this.modelo.addColumn("ID");
         this.modelo.addColumn("Usuario");
         this.modelo.addColumn("Senha");
@@ -58,24 +55,5 @@ public class Contas {
         }
     }
 
-    public void setModelo(DefaultTableModel x){
-        this.modelo = x;
-    }
 
-    public void addModeloRow(String x, String y){
-        this.modelo.insertRow(0, new Object[]{x,y});
-    }
-
-    public void deleteModeloRow(int x){
-        this.modelo.removeRow(x);
-    }
-
-    public int getRowQuant(){
-        return this.modelo.getRowCount();
-    }
-
-    public int calcularQuant(int x, int x1){
-        int y = Integer.parseInt(this.modelo.getValueAt(x,x1)+"");
-        return y;
-    }
 }
