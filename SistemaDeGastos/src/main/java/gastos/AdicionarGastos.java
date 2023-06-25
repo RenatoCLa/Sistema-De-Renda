@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -24,11 +25,22 @@ public class AdicionarGastos {
     JTextField gastosValor;
     JComboBox<String> selectDia;
     JComboBox<String> selectMes;
+    JLabel titulo;
+    JLabel tipoTxt;
+    JLabel gastoTxt;
+    JLabel diaTxt;
+    JLabel mesTxt;
 
     AdicionarGastos() {
 
-        tela = x.createJFrame("Adicionar Gastos", new Color(50, 100, 200), 800, 400);
-        addGastos = x.createButton("Adicionar", 25, 250, 100, 50);
+        tela = x.createJFrame("Adicionar Gastos", new Color(50, 100, 200), 550, 250);
+        addGastos = x.createButton("Adicionar", 75, 175, 100, 25);
+        titulo = x.createText("Adicionar Gastos", 155, 5, 400, 35,  new Font("SansSerif", Font.BOLD, 26), Color.white);
+        tipoTxt = x.createText("Tipo", 85, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        gastoTxt = x.createText("Valor", 225, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        diaTxt = x.createText("Dia", 330, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        mesTxt = x.createText("Mês", 435, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+
         addGastos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,7 +61,9 @@ public class AdicionarGastos {
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
         });
-        sairTela = x.createButton("Voltar", 600, 300, 100, 50);
+        
+        sairTela = x.createButton("Voltar", 365, 175, 100, 25);
+        
         sairTela.addActionListener(new ActionListener() {
 
             @Override
@@ -60,10 +74,11 @@ public class AdicionarGastos {
             }
 
         });
-        tipoGasto = x.createTextField("", new Font("SansSerif", Font.PLAIN, 16), 200, 50, 125, 30);
-        gastosValor = x.createTextField("", new Font("SansSerif", Font.PLAIN, 16), 0, 50, 75, 30);
-        selectDia = x.createComboBox(1, 350, 50, 50, 30, new Font("SansSerif", Font.PLAIN, 16));
-        selectMes = x.createComboBox(2, 450, 50, 100, 30, new Font("SansSerif", Font.PLAIN, 16));
+        
+        tipoGasto = x.createTextField("", new Font("SansSerif", Font.PLAIN, 16), 30, 75, 150, 30);
+        gastosValor = x.createTextField("", new Font("SansSerif", Font.PLAIN, 16), 210, 75, 75, 30);
+        selectDia = x.createComboBox(1, 320, 75, 50, 30, new Font("SansSerif", Font.PLAIN, 16));
+        selectMes = x.createComboBox(2, 405, 75, 100, 30, new Font("SansSerif", Font.PLAIN, 16));
 
         tela.add(addGastos);
         tela.add(sairTela);
@@ -71,6 +86,12 @@ public class AdicionarGastos {
         tela.add(tipoGasto);
         tela.add(selectDia);
         tela.add(selectMes);
+        tela.add(titulo);
+        tela.add(tipoTxt);
+        tela.add(gastoTxt);
+        tela.add(diaTxt);
+        tela.add(mesTxt);
+        
         tela.setVisible(true);
     }
 }

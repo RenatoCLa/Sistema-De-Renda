@@ -29,8 +29,13 @@ public class EditarGastos {
 
     EditarGastos(String ID) throws SQLException {
 
-        tela = x.createJFrame("Editar dados", new Color(50, 100, 200), 800, 400);
-        editarGastos = x.createButton("Salvar", 25, 250, 100, 50);
+        tela = x.createJFrame("Adicionar Gastos", new Color(50, 100, 200), 550, 250);
+        addGastos = x.createButton("Adicionar", 75, 175, 100, 25);
+        titulo = x.createText("Adicionar Gastos", 155, 5, 400, 35,  new Font("SansSerif", Font.BOLD, 26), Color.white);
+        tipoTxt = x.createText("Tipo", 85, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        gastoTxt = x.createText("Valor", 225, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        diaTxt = x.createText("Dia", 330, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        mesTxt = x.createText("Mês", 435, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
         editarGastos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,7 +59,9 @@ public class EditarGastos {
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
         });
-        sairTela = x.createButton("Voltar", 600, 300, 100, 50);
+        
+        sairTela = x.createButton("Voltar", 365, 175, 100, 25);
+        
         sairTela.addActionListener(new ActionListener() {
 
             @Override
