@@ -2,9 +2,7 @@ package BD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
 import javax.swing.JOptionPane;
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
 
 public class adminCommandsDAO {
     

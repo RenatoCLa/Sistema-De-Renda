@@ -30,9 +30,9 @@ public class GerenciarConta {
     GerenciarConta(){
 
         tela = ui.createJFrame("Gerenciar Contas", new Color(50, 100, 200), 500, 350);
-        remove = ui.createButton("Remover Conta", 30, 65, 125, 35);
-        add = ui.createButton("Adicionar Conta", 180, 65, 125, 35);
-        edit = ui.createButton("Editar Conta", 330, 65, 125, 35);
+        remove = ui.createButton("Remover Conta", 330, 65, 125, 35);
+        add = ui.createButton("Adicionar Conta", 30, 65, 125, 35);
+        edit = ui.createButton("Editar Conta", 180, 65, 125, 35);
         titulo = ui.createText("Gerenciador de Contas", 100, 5, 400, 35, new Font("SansSerif", Font.BOLD, 26), Color.white);
         jscp.setBounds(0, 115, 500, 200);
 
@@ -74,7 +74,7 @@ public class GerenciarConta {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                int x = jt.convertColumnIndexToModel(jt.getSelectedRow());
+                int x = jt.convertRowIndexToModel(jt.getSelectedRow());
                 Vector y = cbd.modelo.getDataVector().elementAt(x);
                 String ID = y.get(0).toString();
                 String nome = y.get(1).toString();
