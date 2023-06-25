@@ -43,39 +43,39 @@ public class CadastroFrame implements ActionListener {
     CadastroFrame(){
 
         //titulo
-        titulo.setBounds(190, 65, 275, 50);
+        titulo.setBounds(65, 10, 225, 55);
         titulo.setFont(fonte4);
         titulo.setForeground(Color.white);
 
         //texto "nome"
-        usuarioLabel.setBounds(75, 200, 125, 25);
+        usuarioLabel.setBounds(15, 100, 125, 25);
         usuarioLabel.setForeground(Color.white);
         usuarioLabel.setFont(fonte1);
 
         //campo de nome
-        nomeField.setBounds(175, 200, 275, 25);
+        nomeField.setBounds(120, 101, 200, 25);
         nomeField.setFont(fonte2);
         nomeField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 
         //texto "senha"
-        senhaLabel.setBounds(90, 275, 125, 25);
+        senhaLabel.setBounds(32, 175, 125, 25);
         senhaLabel.setFont(fonte1);
         senhaLabel.setForeground(Color.white);
 
         //campo de senha
-        senhaField.setBounds(175, 275, 275, 25);
+        senhaField.setBounds(120, 176, 200, 25);
         senhaField.setFont(fonte2);
         senhaField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 
         //Botao cadastro
-        cadBt.setBounds(230, 350, 140, 35);
+        cadBt.setBounds(95, 230, 140, 35);
         cadBt.setFont(fonte1);
         cadBt.setFocusable(false);
         cadBt.addActionListener(this);
         cadBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //botao redirecionar para login
-        logBt.setBounds(262, 385, 75, 25);
+        logBt.setBounds(125, 265, 75, 25);
         logBt.setFont(fonte5);
         logBt.setFocusable(false);
         logBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -86,7 +86,7 @@ public class CadastroFrame implements ActionListener {
         logBt.setContentAreaFilled(false);
         
         //configurar tela
-        cadastro.setSize(600, 500);
+        cadastro.setSize(350, 350);
         cadastro.getContentPane().setBackground(new Color(50, 100, 200));
         cadastro.setTitle("Cadastro");
         cadastro.setResizable(false);

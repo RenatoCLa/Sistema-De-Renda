@@ -52,7 +52,7 @@ public class LoginFrame implements ActionListener{
         usuarioLabel.setFont(fonte1);
 
         //campo de nome
-        nomeField.setBounds(120, 102, 200, 25);
+        nomeField.setBounds(120, 101, 200, 25);
         nomeField.setFont(fonte2);
         nomeField.setCursor(new Cursor(Cursor.TEXT_CURSOR));//isso aqui é pro icone do mouse mudar caso ele esteja em cima desse componente
 
@@ -62,7 +62,7 @@ public class LoginFrame implements ActionListener{
         senhaLabel.setForeground(Color.white);
 
         //campo de senha
-        senhaField.setBounds(120, 175, 200, 25);
+        senhaField.setBounds(120, 176, 200, 25);
         senhaField.setFont(fonte2);
         senhaField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 
