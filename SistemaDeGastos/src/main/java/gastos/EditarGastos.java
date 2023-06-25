@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -26,16 +27,22 @@ public class EditarGastos {
     JTextField gastosValor;
     JComboBox<String> selectDia;
     JComboBox<String> selectMes;
+    JLabel titulo;
+    JLabel tipoTxt;
+    JLabel gastoTxt;
+    JLabel diaTxt;
+    JLabel mesTxt;
 
     EditarGastos(String ID) throws SQLException {
 
-        tela = x.createJFrame("Adicionar Gastos", new Color(50, 100, 200), 550, 250);
-        addGastos = x.createButton("Adicionar", 75, 175, 100, 25);
-        titulo = x.createText("Adicionar Gastos", 155, 5, 400, 35,  new Font("SansSerif", Font.BOLD, 26), Color.white);
+        tela = x.createJFrame("Editar Gastos", new Color(50, 100, 200), 550, 250);
+        editarGastos = x.createButton("Salvar", 75, 175, 100, 25);
+        titulo = x.createText("Editar Gastos", 185, 5, 400, 35,  new Font("SansSerif", Font.BOLD, 26), Color.white);
         tipoTxt = x.createText("Tipo", 85, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
         gastoTxt = x.createText("Valor", 225, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
         diaTxt = x.createText("Dia", 330, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
         mesTxt = x.createText("Mês", 435, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        
         editarGastos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,6 +77,7 @@ public class EditarGastos {
                     new AdminTabela();
                 }else{
                     new MenuInicial();
+                    tela.dispose();
                 }                
                 tela.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
@@ -79,11 +87,12 @@ public class EditarGastos {
         
         ResultSet rs = new gastosDAO().getValues(ID);
 
-        tipoGasto = x.createTextField(rs.getString("tipo"), new Font("SansSerif", Font.PLAIN, 16), 200, 50, 125, 30);
-        gastosValor = x.createTextField(rs.getString("gastos"), new Font("SansSerif", Font.PLAIN, 16), 0, 50, 75, 30);
-        selectDia = x.createComboBox(1, 350, 50, 50, 30, new Font("SansSerif", Font.PLAIN, 16));
+        tipoGasto = x.createTextField(rs.getString("tipo"), new Font("SansSerif", Font.PLAIN, 16), 30, 75, 150, 30);
+        gastosValor = x.createTextField(rs.getString("gastos"), new Font("SansSerif", Font.PLAIN, 16), 210, 75, 75, 30);
+        selectDia = x.createComboBox(1, 320, 75, 50, 30, new Font("SansSerif", Font.PLAIN, 16));
+        selectMes = x.createComboBox(2, 405, 75, 100, 30, new Font("SansSerif", Font.PLAIN, 16));
+        
         selectDia.setSelectedItem(rs.getString("dia"));
-        selectMes = x.createComboBox(2, 450, 50, 100, 30, new Font("SansSerif", Font.PLAIN, 16));
         selectMes.setSelectedItem(rs.getString("mes"));
 
         tela.add(editarGastos);
@@ -92,6 +101,12 @@ public class EditarGastos {
         tela.add(tipoGasto);
         tela.add(selectDia);
         tela.add(selectMes);
+        tela.add(tipoTxt);
+        tela.add(titulo);
+        tela.add(gastoTxt);
+        tela.add(diaTxt);
+        tela.add(mesTxt);
+        
         tela.setVisible(true);
     }
 }

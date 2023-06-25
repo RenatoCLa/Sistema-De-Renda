@@ -92,7 +92,9 @@ public class MenuInicial{
                 
                 try {
 
-                    new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1),valor.get(2),valor.get(3), String.valueOf(userID.getID())));
+                    new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1),
+                    valor.get(2),valor.get(3), String.valueOf(userID.getID())));
+                    inicialFrame.dispose();
                     
                 } catch (Exception e1) {
                     
