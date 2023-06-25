@@ -74,8 +74,9 @@ public class AdminTabela {
                 valor.add(x.get(1).toString());
                 valor.add(x.get(2).toString());
                 valor.add(x.get(3).toString());
+                valor.add(x.get(4).toString());
                 try {
-                    new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1) ,valor.get(2), valor.get(3)));
+                    new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1) ,valor.get(2), valor.get(3), valor.get(4)));
                     tela.dispose();
                 } catch (SQLException e1) {
                     JOptionPane.showMessageDialog(null, e1);

@@ -47,7 +47,6 @@ public class EditarGastos {
                     new AdminTabela();
                 }else{
                     new MenuInicial();
-
                 }                
                 tela.dispose();
             }

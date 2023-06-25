@@ -3,7 +3,6 @@ package gastos;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -16,7 +15,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import BD.gastosDAO;
-
 public class MenuInicial{
 
     UI ui = new UI();
@@ -84,19 +82,22 @@ public class MenuInicial{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Vector x = gastT.modelo.getDataVector().elementAt(gastosLista.convertColumnIndexToModel(gastosLista.getSelectedRow()));
+                Vector x = gastT.modelo.getDataVector().elementAt(gastosLista.convertRowIndexToModel(gastosLista.getSelectedRow()));
                 ArrayList<String> valor = new ArrayList<String>();
-                System.out.println(x);
                 valor.add(x.get(0).toString());
                 valor.add(x.get(1).toString());
                 valor.add(x.get(2).toString());
                 valor.add(x.get(3).toString());
+                System.out.println(valor);
+                
                 try {
-                    new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1) ,valor.get(2), valor.get(3)));
-                } catch (SQLException e1) {
+
+                    new EditarGastos(new gastosDAO().getID(valor.get(0),valor.get(1),valor.get(2),valor.get(3), String.valueOf(userID.getID())));
+                    
+                } catch (Exception e1) {
+                    
                     JOptionPane.showMessageDialog(null, e1);
                 }
-                inicialFrame.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
             
