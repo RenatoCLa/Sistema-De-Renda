@@ -1,10 +1,10 @@
 package gastos;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,15 +25,16 @@ public class GerenciarConta {
     JButton edit;
     JButton add;
     JButton remove;
-
+    JLabel titulo;
 
     GerenciarConta(){
 
-        tela = ui.createJFrame("Gerenciar Contas", new Color(50, 100, 200), 800, 600);
-        remove = ui.createButton("Remover Conta", 0, 0, 125, 35);
-        add = ui.createButton("Adicionar Conta", 0, 50, 125, 35);
-        edit = ui.createButton("Editar Conta", 0, 100, 125, 35);
-        jscp.setBounds(25, 315, 725, 225);
+        tela = ui.createJFrame("Gerenciar Contas", new Color(50, 100, 200), 500, 350);
+        remove = ui.createButton("Remover Conta", 30, 65, 125, 35);
+        add = ui.createButton("Adicionar Conta", 180, 65, 125, 35);
+        edit = ui.createButton("Editar Conta", 330, 65, 125, 35);
+        titulo = ui.createText("Gerenciador de Contas", 100, 5, 400, 35, new Font("SansSerif", Font.BOLD, 26), Color.white);
+        jscp.setBounds(0, 115, 500, 200);
 
         remove.addActionListener(new ActionListener() {
             
@@ -94,10 +95,11 @@ public class GerenciarConta {
         jt.getColumnModel().getColumn(0).setCellRenderer(render);
         jt.getColumnModel().getColumn(1).setCellRenderer(render);
         jt.getColumnModel().getColumn(2).setCellRenderer(render);
-        jt.setAutoCreateRowSorter(true);
+        //jt.setAutoCreateRowSorter(true);
 
         tela.add(jscp);
         tela.add(remove);
+        tela.add(titulo);
         tela.add(add);
         tela.add(edit);
 

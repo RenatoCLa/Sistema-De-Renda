@@ -1,6 +1,7 @@
 package gastos;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -27,15 +28,17 @@ public class AdminTabela {
     JButton remover;
     JButton editar;
     JTable jt = new JTable(g.modelo);
+    JLabel titulo;
     JScrollPane tabela = new JScrollPane(jt);
     
 
     AdminTabela(){
         
-        tela = ui.createJFrame("Informações de gastos", new Color(50, 100, 200), 600, 400);
-        add = ui.createButton("Adicionar Gastos", 0, 120, 150, 30);
-        remover = ui.createButton("Remover Gastos", 300, 120, 150, 30);
-        editar = ui.createButton("Editar Gastos", 150, 120, 150, 30);
+        tela = ui.createJFrame("Gerenciar Gastos de Usuários", new Color(50, 100, 200), 600, 350);
+        add = ui.createButton("Adicionar Gastos", 25, 55, 150, 30);
+        remover = ui.createButton("Remover Gastos", 405, 55, 150, 30);
+        editar = ui.createButton("Editar Gastos", 215, 55, 150, 30);
+        titulo = ui.createText("Gerenciar Gastos de usuários", 100, 0, 400, 35, new Font("SansSerif", Font.BOLD, 28), Color.white);
 
         remover.addActionListener(new ActionListener() {
 
@@ -85,7 +88,7 @@ public class AdminTabela {
             }       
         });
 
-        tabela.setBounds(0, 150, 600, 250);
+        tabela.setBounds(0, 100, 600, 275);
 
         jt.getTableHeader().getColumnModel().getColumn(0).setPreferredWidth(225);
         jt.getTableHeader().getColumnModel().getColumn(1).setPreferredWidth(100);
@@ -106,6 +109,7 @@ public class AdminTabela {
         tela.add(add);
         tela.add(remover);
         tela.add(editar);
+        tela.add(titulo);
 
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setVisible(true);

@@ -47,7 +47,7 @@ public class MenuInicial{
     //esse codigo vai ser chamado, quando um menu for criado
     MenuInicial(){
 
-        telaAddGastos = ui.createButton("Adicionar Gastos", 0, 120, 150, 30);
+        telaAddGastos = ui.createButton("Adicionar Gastos", 0, 105, 150, 30);
         telaAddGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
         
         telaAddGastos.addActionListener(new ActionListener() {
@@ -61,7 +61,7 @@ public class MenuInicial{
             
         });
         
-        removerGastos = ui.createButton("Remover Gastos", 560, 120, 150, 30);
+        removerGastos = ui.createButton("Remover Gastos", 560, 105, 150, 30);
         removerGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
         
         removerGastos.addActionListener(new ActionListener() {
@@ -75,7 +75,7 @@ public class MenuInicial{
             
         });
         
-        editarGastos = ui.createButton("Editar Gastos", 170, 120, 150, 30);
+        editarGastos = ui.createButton("Editar Gastos", 170, 105, 150, 30);
         editarGastos.setFont(new Font("SansSerif", Font.BOLD, 12));
         
         editarGastos.addActionListener(new ActionListener() {
@@ -103,7 +103,7 @@ public class MenuInicial{
             
         });
         
-        gastosMensal = ui.createButton("Visualizar gastos mensais", 340, 120, 200, 30);
+        gastosMensal = ui.createButton("Visualizar gastos mensais", 340, 105, 200, 30);
 
         gastosMensal.addActionListener(new ActionListener() {
 

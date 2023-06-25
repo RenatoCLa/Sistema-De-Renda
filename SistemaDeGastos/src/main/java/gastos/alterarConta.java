@@ -66,7 +66,8 @@ public class alterarConta {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                new GerenciarConta(); 
+                new GerenciarConta();
+                tela.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
             
@@ -131,6 +132,7 @@ public class alterarConta {
             public void actionPerformed(ActionEvent e) {
                 
                 new GerenciarConta();
+                tela.dispose();
                 throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
             }
             
