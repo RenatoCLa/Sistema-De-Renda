@@ -36,6 +36,8 @@ public class alterarConta {
         user = x.createText("Usuario", 60, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
         pass = x.createText("Senha", 250, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
 
+        tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         addConta.addActionListener(new ActionListener() {
 
             @Override
@@ -43,6 +45,9 @@ public class alterarConta {
                 
                 String t1 = userValor.getText();
                 String t2 = passValor.getText();
+
+                Boolean x = t1.isBlank();
+                Boolean y = t2.isBlank();
                 
                 userCadDAO ver = new userCadDAO();
 
@@ -50,6 +55,9 @@ public class alterarConta {
                     if(ver.contaExist(t1).next()){
 
                         JOptionPane.showMessageDialog(null, "Usuário já existe!");
+                    }else if(x == true || y == true){
+                        
+                        JOptionPane.showMessageDialog(null, "Preencha os dados corretamente!");
                     }else{
                         new adminCommandsDAO().addConta(t1, t2);
                     }
@@ -99,6 +107,8 @@ public class alterarConta {
         titulo = x.createText("Alterar Conta", 100, 5, 400, 35,  new Font("SansSerif", Font.BOLD, 26), Color.white);
         user = x.createText("Usuario", 60, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
         pass = x.createText("Senha", 250, 45, 125, 35,  new Font("SansSerif", Font.BOLD, 18), Color.white);
+        
+        tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         addConta.addActionListener(new ActionListener() {
             
