@@ -131,7 +131,7 @@ public class MenuInicial{
         painelScroll.setBounds(0, 150, 725, 210);
         DefaultTableCellRenderer render = new DefaultTableCellRenderer();
         render.setHorizontalAlignment(JLabel.CENTER);
-        gastosLista.setAutoCreateRowSorter(true);
+        //gastosLista.setAutoCreateRowSorter(true);
         gastosLista.getColumnModel().getColumn(0).setCellRenderer(render);
         gastosLista.getColumnModel().getColumn(1).setCellRenderer(render);
         gastosLista.getColumnModel().getColumn(2).setCellRenderer(render);
@@ -157,6 +157,7 @@ public class MenuInicial{
         inicialFrame.add(telaAddGastos);
         inicialFrame.add(editarGastos);
         
+        inicialFrame.setTitle("Gerenciador de Gastos");
         inicialFrame.setVisible(true); // deixar a tela visivel
     }
 }

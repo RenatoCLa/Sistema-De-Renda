@@ -42,39 +42,39 @@ public class LoginFrame implements ActionListener{
 
     LoginFrame(){
         //titulo
-        titulo.setBounds(235, 65, 200, 55);
+        titulo.setBounds(105, 10, 200, 55);
         titulo.setFont(fonte4);
         titulo.setForeground(Color.white);
 
         //texto "nome"
-        usuarioLabel.setBounds(75, 200, 125, 25);
+        usuarioLabel.setBounds(15, 100, 125, 25);
         usuarioLabel.setForeground(Color.white);
         usuarioLabel.setFont(fonte1);
 
         //campo de nome
-        nomeField.setBounds(175, 200, 275, 25);
+        nomeField.setBounds(120, 102, 200, 25);
         nomeField.setFont(fonte2);
         nomeField.setCursor(new Cursor(Cursor.TEXT_CURSOR));//isso aqui é pro icone do mouse mudar caso ele esteja em cima desse componente
 
         //texto "senha"
-        senhaLabel.setBounds(90, 275, 125, 25);
+        senhaLabel.setBounds(32, 175, 125, 25);
         senhaLabel.setFont(fonte1);
         senhaLabel.setForeground(Color.white);
 
         //campo de senha
-        senhaField.setBounds(175, 275, 275, 25);
+        senhaField.setBounds(120, 175, 200, 25);
         senhaField.setFont(fonte2);
         senhaField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
 
         //Botao login
-        logBt.setBounds(240, 350, 120, 35);
+        logBt.setBounds(107, 230, 120, 35);
         logBt.setFont(fonte1);
         logBt.setFocusable(false);
         logBt.addActionListener(this);
         logBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         //Botao redirecionar para tela de cadastro
-        cadBt.setBounds(262, 385, 75, 25);
+        cadBt.setBounds(127, 265, 75, 25);
         cadBt.setFont(fonte5);
         cadBt.setFocusable(false);
         cadBt.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -85,7 +85,7 @@ public class LoginFrame implements ActionListener{
         cadBt.setContentAreaFilled(false);
         
         //tela login
-        login.setSize(600, 500);
+        login.setSize(350, 350);
         login.getContentPane().setBackground(new Color(50, 100, 200));
         login.setTitle("Login");
         login.setResizable(false);

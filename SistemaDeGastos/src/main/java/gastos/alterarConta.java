@@ -25,7 +25,7 @@ public class alterarConta {
 
     alterarConta(){
 
-        tela = x.createJFrame("Adicionar Gastos", new Color(50, 100, 200), 800, 400);
+        tela = x.createJFrame("Adicionar Conta", new Color(50, 100, 200), 800, 400);
         addConta = x.createButton("Adicionar", 25, 250, 100, 50);
         sairTela = x.createButton("Voltar", 600, 300, 100, 50);
         userValor = x.createTextField("", new Font("SansSerif", Font.PLAIN, 16), 200, 50, 125, 30);

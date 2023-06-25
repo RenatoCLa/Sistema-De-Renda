@@ -32,10 +32,10 @@ public class AdminTabela {
 
     AdminTabela(){
         
-        tela = ui.createJFrame("Informações de gastos", new Color(50, 100, 200), 800, 600);
-        add = ui.createButton("Adicionar Gastos", 25, 282, 150, 30);
-        remover = ui.createButton("Remover Gastos", 325, 282, 150, 30);
-        editar = ui.createButton("Editar Gastos", 175, 282, 150, 30);
+        tela = ui.createJFrame("Informações de gastos", new Color(50, 100, 200), 600, 400);
+        add = ui.createButton("Adicionar Gastos", 0, 120, 150, 30);
+        remover = ui.createButton("Remover Gastos", 300, 120, 150, 30);
+        editar = ui.createButton("Editar Gastos", 150, 120, 150, 30);
 
         remover.addActionListener(new ActionListener() {
 
@@ -85,7 +85,7 @@ public class AdminTabela {
             }       
         });
 
-        tabela.setBounds(25, 315, 725, 225);
+        tabela.setBounds(0, 150, 600, 250);
 
         jt.getTableHeader().getColumnModel().getColumn(0).setPreferredWidth(225);
         jt.getTableHeader().getColumnModel().getColumn(1).setPreferredWidth(100);
@@ -100,7 +100,7 @@ public class AdminTabela {
         jt.getColumnModel().getColumn(2).setCellRenderer(render);
         jt.getColumnModel().getColumn(3).setCellRenderer(render);
         jt.getColumnModel().getColumn(4).setCellRenderer(render);
-        jt.setAutoCreateRowSorter(true);
+        //jt.setAutoCreateRowSorter(true);
         
         tela.add(tabela);
         tela.add(add);

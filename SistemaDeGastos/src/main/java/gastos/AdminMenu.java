@@ -21,7 +21,7 @@ public class AdminMenu {
     AdminMenu(){
 
         //Criar Componentes
-        tela = ui.createJFrame("Menu Admin", new Color(50, 100, 200), 250, 300);
+        tela = ui.createJFrame("Menu ADM", new Color(50, 100, 200), 250, 300);
         gerenciarContas = ui.createButton("Gerenciar Contas", 40, 100, 150, 35);
         gerenciarGastos = ui.createButton("Gerenciar Gastos", 40, 150, 150, 35);
         gastosAdmin = ui.createButton("Tabela de gastos", 40, 200, 150, 35);
