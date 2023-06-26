@@ -10,11 +10,13 @@ Utilizar o sistema é muito simples, baixe o app pelo github, e inicie o .jar Vo
 
 1.Cadastro.
 Para entrar na plataforma você deve realizar um cadastro, coloque o usuário logo em seguida sua senha e seu salário mensal.
+
 ![WhatsApp Image 2023-06-26 at 19 41 59](https://github.com/SrMassive/Sistema-De-Renda/assets/132691037/2ab5e07e-74dc-4fb9-b4e1-b9ef0326303c)
 
 
 2.Log-in. 
 Para realizar log-in na plataforma insira as mesmas credenciais que você registrou, usuário e senha.
+
 ![WhatsApp Image 2023-06-26 at 19 28 05](https://github.com/SrMassive/Sistema-De-Renda/assets/132691037/419d02f2-d905-4381-a798-184ddb37c485)
 
 
